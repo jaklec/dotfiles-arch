@@ -1,0 +1,26 @@
+[user]
+	email = jakob.leczinsky@gmail.com
+  name = Jakob Leczinsky
+[merge]
+  tool = vimdiff 
+	conflictstyle = diff3
+[mergetool]
+	prompt = false
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[mergetool "meld"]
+  # Choose one of these 2 lines (not both!) explained below.
+  #cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+  cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[difftool]
+  prompt = false
+[diff]
+  tool = meld 
+[core]
+  excludesfile = /home/jakob/.gitignore
+[includeIf "gitdir:~/Projects/cygni/"]
+  path = ~/.gitconfig-cygni
+[includeIf "gitdir:~/Projects/bdsn/"]
+  path = .gitconfig-cygni
+[includeIf "gitdir:~/Projects/salt/"]
+  path = .gitconfig-cygni
