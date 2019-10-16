@@ -1,0 +1,121 @@
+snippet ec "Define external crate"
+extern crate ${1:create_name};$0
+endsnippet
+
+snippet use "use some create"
+use ${1:std::io};$0
+endsnippet
+
+snippet match "pattern matching"
+match ${1:sample} {
+	${2:case} => ${3:result},$0
+}
+endsnippet
+
+snippet case "case for mattern matching"
+${1:case} => ${3:result},$0
+endsnippet
+
+snippet fn "function"
+fn ${1:name}(${2:args})${3: -> ${4:type}} {
+	$0
+}
+endsnippet
+
+snippet struct "create a new Struct"
+struct ${1:Name} {
+	$0
+}
+endsnippet
+
+snippet tstruct "create a new Tuple Struct"
+struct ${1:Name}(${2:args});$0
+endsnippet
+
+snippet enum 
+enum ${1:Foo} {
+	${2:Bar},$0
+}
+endsnippet
+
+snippet main "main function"
+fn main() {
+	$0
+}
+endsnippet
+
+snippet mod "module"
+mod ${1:modulename} {
+	$0
+}
+endsnippet
+
+snippet if "'if' expression"
+if ${1:condition} {
+	$0
+}
+endsnippet
+
+snippet elif "'else if' expression"
+else if ${1:condition} {
+	$0
+}
+endsnippet
+
+snippet else "'else' expression"
+else {
+	$0
+}
+endsnippet
+
+snippet println "'println' macro"
+println!("${1}");$0
+endsnippet
+
+snippet loop
+loop {
+	$0
+}
+endsnippet
+
+snippet while
+while ${1:condition} {
+	$0
+}
+endsnippet
+
+snippet for 
+for ${2:i} in ${1:iterator} {
+	$0
+}
+endsnippet
+
+snippet stf "string literal (String::from)"
+String::from("${1:foo}");$0
+endsnippet
+
+snippet tmod "test module" 
+#[cfg(test)]
+mod tests {
+	#[test]
+	fn ${1:it_works}() {
+		$0
+	}
+}
+endsnippet
+
+snippet test "test"
+#[test]
+fn ${1:it_works}() {
+	$0
+}
+endsnippet
+
+snippet display "impl fmt::Display for ..." 
+impl fmt::Display for $1 {
+
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "$2", $0)
+    }
+}
+endsnippet

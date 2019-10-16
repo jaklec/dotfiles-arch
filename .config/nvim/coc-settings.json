@@ -1,0 +1,11 @@
+{
+  "eslint.enable": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript","javascriptreact", "typescript", "vue"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust"],
+  "javascript.validate.enable": false,
+  "snippets.ultisnips.directories": [
+    "~/.config/nvim/UltiSnips",
+  ] ,
+  "rust.clippy_preference":"on"
+}

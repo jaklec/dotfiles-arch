@@ -1,0 +1,91 @@
+global !p
+def current_dir():
+	from glob import glob
+	return vim.eval("expand('%:h')")
+endglobal
+
+global !p
+def current_file():
+	from glob import glob
+	return vim.eval("expand('%:t:r')")
+endglobal
+
+global !p
+def java_file_basename():
+	return current_file().split(".java", 1)[0]
+endglobal
+
+global !p
+def package_for(path):
+	import re
+	regexes = ["src/main/java", "src/test/java"]
+
+	pkg = "my.package.name"
+	for r in regexes:
+		p = re.compile(r)
+		m = p.search(path)
+		if m:
+			pkg = path.split(r, 1)[1][1:].replace("/", ".")
+
+	return pkg
+endglobal
+
+snippet sout "Print line"
+System.out.println(${1:output...});$0
+endsnippet
+
+snippet bl "Code block"
+{
+	$0
+}
+endsnippet
+
+snippet case "case"
+case $1:
+	$2
+$0
+endsnippet
+
+snippet package "Create package for class"
+package ${1:`!p snip.rv = package_for(current_dir())`;}$0
+endsnippet
+
+snippet class "Create new class"
+${2:public} class ${1:`!p snip.rv = java_file_basename()`} { 
+	$0
+}
+endsnippet
+
+snippet interface "Create new interface"
+${2:public} interface ${1:`!p snip.rv = java_file_basename()`} {
+	$0
+}
+endsnippet
+
+snippet println "System.out.println(...);"
+System.out.println(${1:"foo"});$0
+endsnippet
+
+snippet junit "Create new Junit test class"
+package ${1:`!p snip.rv = package_for(current_dir())`;}
+
+import org.junit.Test;
+
+import static org.junit.Assert.*;
+
+public class ${2:`!p snip.rv = java_file_basename()`} {
+
+	@Test
+	public void ${3:testMe}() {
+		$0
+	}
+}
+endsnippet
+
+snippet test "Create new Junit test method"
+@Test
+public void ${1:testMe}() {
+	$0
+}
+endsnippet
+
