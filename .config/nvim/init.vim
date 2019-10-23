@@ -89,16 +89,17 @@ Plug 'lilydjwg/colorizer'
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
-Plug 'neoclide/coc-tsserver' "js/ts
-Plug 'neoclide/coc-snippets'
-Plug 'neoclide/coc-prettier' "js/ts
-Plug 'neoclide/coc-pairs'
-Plug 'neoclide/coc-jest' "js/ts
-Plug 'neoclide/coc-eslint' "js/ts 
-Plug 'neoclide/coc-emmet' "html
-Plug 'neoclide/coc-yaml'
-Plug 'neoclide/coc-vetur' "Vue
-Plug 'neoclide/coc-rls' "Rust
+" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'neoclide/coc-tsserver' "js/ts
+" Plug 'neoclide/coc-snippets'
+" Plug 'neoclide/coc-prettier' "js/ts
+" Plug 'neoclide/coc-pairs'
+" Plug 'neoclide/coc-jest' "js/ts
+" Plug 'neoclide/coc-eslint' "js/ts 
+" Plug 'neoclide/coc-emmet' "html
+" Plug 'neoclide/coc-yaml'
+" Plug 'neoclide/coc-vetur' "Vue
+" Plug 'neoclide/coc-rls' "Rust
 
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
@@ -149,10 +150,6 @@ Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh
 "" Web
 " Mustache and Handlebars
 Plug 'mustache/vim-mustache-handlebars'
-" Emmet (HTML + CSS)
-" ex: html:5 <CR-Y>
-" ex: div#foo$*2>div.bar>{baz} <CR-Y>
-Plug 'mattn/emmet-vim'
 
 "" Vue
 Plug 'posva/vim-vue'
