@@ -39,6 +39,9 @@ mode notifications {
 	bindsym Shift+d makoctl dismiss -a; mode default
 }
 
+# Hide cursor after some time
+seat * hide_cursor 8000 
+
 #
 # Example configuration:
 #
@@ -282,7 +285,7 @@ mode "nag" {
   }
 }
 
-set $mode_display HDMI: (1) Left (2) Top (3) Right (x) Off
+set $mode_display HDMI: (1) Left (2) Top (3) Right (4) Auto (x) Off
 mode "$mode_display" {
   # bindsym 1 output eDP-1 res 3840x2400 scale 2, output HDMI2, mode "default"
   # bindsym 2 output eDP-1 res 3840x2400 scale 2; output HDMI2 scale 2; mode "default"
@@ -290,6 +293,8 @@ mode "$mode_display" {
   bindsym 1 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1 position 1920 0 mode 2560x1440 scale 1, mode "default" 
   bindsym 2 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1 position 0 -1200, mode "default" 
   bindsym 3 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1 position -1920 0 mode 2560x1440 scale 1, mode "default" 
+  bindsym 4 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1, mode "default" 
+
   bindsym x output DP-1 disable, mode "default"
 
   #back to normal: Enter or Escape
