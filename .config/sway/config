@@ -42,6 +42,8 @@ mode notifications {
 # Hide cursor after some time
 seat * hide_cursor 8000 
 
+font pango:Ubuntu Mono 10
+
 #
 # Example configuration:
 #
@@ -244,6 +246,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Screen capture
+#
+bindsym $mod+Print exec grim ~/Desktop/screenshot_$(date +%Y-%m-%dT%T).png
+bindsym $mod+Shift+Print exec grim -g "$(slurp)" ~/Desktop/screenshot_$(date +%Y-%m-%dT%T).png
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -285,7 +293,7 @@ mode "nag" {
   }
 }
 
-set $mode_display HDMI: (1) Left (2) Top (3) Right (4) Auto (x) Off
+set $mode_display HDMI: (1) Right (2) Top (3) Left (4) Auto (x) Off
 mode "$mode_display" {
   # bindsym 1 output eDP-1 res 3840x2400 scale 2, output HDMI2, mode "default"
   # bindsym 2 output eDP-1 res 3840x2400 scale 2; output HDMI2 scale 2; mode "default"
@@ -322,9 +330,9 @@ bindsym Ctrl+$mod+Delete mode "$mode_system"
 include /etc/sway/config.d/*
 
 exec_always swayidle \
-				timeout 300 'swaylock -e -c 000000' \
-				# timeout 600 'swaymsg "output eDP-1 dpms off"' \
-				#      resume 'swaymsg "output eDP-1 dpms on"' \
-				# before-sleep 'sync && swaylock -f -e -c 000000'
+				timeout 400 'swaylock -e -c 000000' \
+        timeout 800 'swaymsg "output eDP-1 dpms off"' \
+             resume 'swaymsg "output eDP-1 dpms on"' \
+        before-sleep 'swaylock -f -e -c 000000'
 
 exec_always mako
