@@ -7,5 +7,12 @@
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips",
   ] ,
-  "rust.clippy_preference":"on"
+  "rust.clippy_preference":"on",
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-lsp",
+      "filetypes": ["terraform"],
+      "initializationOptions": {}
+    }
+  }
 }

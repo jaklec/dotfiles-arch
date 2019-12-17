@@ -15,11 +15,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
 Plug 'sonph/onehalf'
-Plug 'ayu-theme/ayu-vim'
-" Plug 'rakr/vim-two-firewatch'
-" Plug 'UndeadLeech/vim-undead'
-" Plug 'Addisonbean/Vim-Xcode-Theme'
-Plug 'Erichain/vim-monokai-pro'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'Erichain/vim-monokai-pro'
 " Lean and mean status/tabline
 Plug 'vim-airline/vim-airline'
 
@@ -141,7 +138,8 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " JS highlighting and indent support. Sometimes buggy, but has support for
 " jsdocs and flow
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
+" Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
 " Golang autocompletion daemon compatible with nvim-completion-manager.
@@ -178,6 +176,7 @@ set t_Co=256
 colorscheme gruvbox
 set background=dark
 set signcolumn=yes
+let g:gruvbox_contrast_dark = 'hard'
 
 " close preview window after completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
