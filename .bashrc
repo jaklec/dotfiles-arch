@@ -26,3 +26,5 @@ fi
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
+
+eval "`fnm env --multi`"
