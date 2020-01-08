@@ -21,6 +21,7 @@ alias fk3-node='docker run -it -v "$PWD:/code" -p 3000:3000 -p 9229:9229 fk3_nod
 
 alias fvim='nvim `fzf`'
 
-alias diff="diff-so-fancy"
+# alias diff="diff-so-fancy"
+alias diff="colordiff"
 
 alias ls="exa"
