@@ -261,8 +261,8 @@ nmap <leader>lf <Plug>(coc-format-selected)
 nmap <leader>or :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 
 " Use `[c` and `]c` for navigate diagnostics
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> <leader>lE <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>le <Plug>(coc-diagnostic-next)
 
 " Use <leader>lh for show documentation in preview window 
 " (close window with :pc)
