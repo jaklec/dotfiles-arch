@@ -13,6 +13,9 @@ export PATH=$PATH:$HOME/.local/bin
 export VISUAL=nvim
 export EDITOR=$VISUAL
 
+# Firefox on Wayland
+export MOZ_ENABLE_WAYLAND=1 
+
 # Git
 source /usr/share/git/git-prompt.sh
 source /usr/share/git/completion/git-completion.bash
