@@ -20,8 +20,11 @@ alias imv='imv -b ffffff'
 alias fk3-node='docker run -it -v "$PWD:/code" -p 3000:3000 -p 9229:9229 fk3_node'
 
 alias fvim='nvim `fzf`'
+alias fbat='bat `fzf`'
 
 # alias diff="diff-so-fancy"
 alias diff="colordiff"
 
 alias ls="exa"
+
+alias pgfk="psql -h localhost -p 5432 -U developer"
