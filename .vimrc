@@ -107,6 +107,8 @@ set shortmess=atI
 set showmatch
 set matchtime=5
 
+set number
+
 " Enable syntax highlighting
 syntax enable
 
