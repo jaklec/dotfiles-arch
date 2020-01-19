@@ -18,13 +18,25 @@ source /usr/share/git/git-prompt.sh
 source /usr/share/git/completion/git-completion.bash
 export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
 
-#determines search program for fzf
-if type ag &> /dev/null; then
-    export FZF_DEFAULT_COMMAND='ag -g ""'
-fi
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
 
+## FZF
+source /usr/share/fzf/key-bindings.bash
+source /usr/share/fzf/completion.bash
+
+#determines search program for fzf
+if type ag &> /dev/null; then
+  # export FZF_DEFAULT_COMMAND='ag -g ""'
+  # export FZF_CTRL_T_COMMAND='ag -g ""'
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_CTRL_T_COMMAND='rg --files'
+fi
+
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+
 eval "`fnm env --multi`"
+# exec fish
