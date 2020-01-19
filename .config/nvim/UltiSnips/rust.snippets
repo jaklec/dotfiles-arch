@@ -111,6 +111,15 @@ fn ${1:it_works}() {
 }
 endsnippet
 
+snippet fmt::Display "impl fmt::Display for ..." 
+impl fmt::Display for $1 {
+
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "$2", $0)
+    }
+}
+endsnippet
+
 snippet display "impl fmt::Display for ..." 
 impl fmt::Display for $1 {
 
@@ -118,4 +127,8 @@ impl fmt::Display for $1 {
         write!(f, "$2", $0)
     }
 }
+endsnippet
+
+snippet dead_code "Allow dead code"
+#[allow(dead_code)]$0
 endsnippet
