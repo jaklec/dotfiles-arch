@@ -36,7 +36,8 @@ mode notifications {
 	bindsym Escape mode default
 	bindsym Return exec makoctl invoke; exec makoctl dismiss; mode default
 	bindsym d exec makoctl dismiss; mode default
-	bindsym Shift+d makoctl dismiss -a; mode default
+	bindsym 1 exec makoctl dismiss
+	bindsym Shift+d exec makoctl dismiss -a; mode default
 }
 
 # Hide cursor after some time
@@ -79,7 +80,9 @@ font pango:Ubuntu Mono 10
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input "2:7:SynPS/2_Synaptics_TouchPad" {
+#
+ input "2:7:SynPS/2_Synaptics_TouchPad" { 
+#input "1739:52602:00304238304C4C44:00_06CB:CD7A_Touchpad" { # Seems like the touchpad identifier has changed?
     dwt enabled
 #    tap enabled
     natural_scroll enabled
@@ -183,6 +186,10 @@ input * xkb_layout "se"
     bindsym $mod+Ctrl+$left move workspace to output left
     bindsym $mod+Ctrl+Right move workspace to output right 
     bindsym $mod+Ctrl+$right move workspace to output right 
+    bindsym $mod+Ctrl+Up move workspace to output up
+    bindsym $mod+Ctrl+$up move workspace to output up
+    bindsym $mod+Ctrl+Down move workspace to output down
+    bindsym $mod+Ctrl+$down move workspace to output down
 #
 # Layout stuff:
 #
@@ -293,7 +300,7 @@ mode "nag" {
   }
 }
 
-set $mode_display HDMI: (1) Right (2) Top (3) Left (4) Auto (x) Off
+set $mode_display HDMI: (1) Right (2) Top (3) Left (4) Auto (5) present (x) Off
 mode "$mode_display" {
   # bindsym 1 output eDP-1 res 3840x2400 scale 2, output HDMI2, mode "default"
   # bindsym 2 output eDP-1 res 3840x2400 scale 2; output HDMI2 scale 2; mode "default"
@@ -302,7 +309,7 @@ mode "$mode_display" {
   bindsym 2 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1 position 0 -1200, mode "default" 
   bindsym 3 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1 position -1920 0 mode 2560x1440 scale 1, mode "default" 
   bindsym 4 output DP-1 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-1, mode "default" 
-
+  bindsym 5 output DP-3 enable, output eDP-1 position 0 0 mode 3840x2400 scale 2, output DP-3 mode 1920x1080, mode "default" 
   bindsym x output DP-1 disable, mode "default"
 
   #back to normal: Enter or Escape
