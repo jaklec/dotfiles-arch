@@ -29,6 +29,15 @@ describe('$1', () => {
 })
 endsnippet
 
+snippet jestita "Jest :: async specification stub"
+describe('$1', () => {
+	it('should $2', async () => {
+		expect.assertions(1)
+		$0
+	})
+})
+endsnippet
+
 snippet test "Jest :: test function"
 test('$1', () => {
 	$0
@@ -43,6 +52,19 @@ endsnippet
 
 snippet its "Jest :: test function"
 it('should $1', () => {
+	$0
+})
+endsnippet
+
+snippet itsa "Jest :: async test function"
+it('should $1', async () => {
+	expect.assertions(1)
+	$0
+})
+endsnippet
+
+snippet itsd "Jest :: old style async test function"
+it('should $1', (done) => {
 	$0
 })
 endsnippet
