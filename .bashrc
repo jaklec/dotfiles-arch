@@ -15,6 +15,7 @@ export EDITOR=$VISUAL
 
 # Firefox on Wayland
 export MOZ_ENABLE_WAYLAND=1 
+export BROWSER=firefox
 
 # Git
 source /usr/share/git/git-prompt.sh
@@ -31,15 +32,24 @@ source /usr/share/fzf/key-bindings.bash
 source /usr/share/fzf/completion.bash
 
 #determines search program for fzf
-if type ag &> /dev/null; then
+if type rg &> /dev/null; then
   # export FZF_DEFAULT_COMMAND='ag -g ""'
   # export FZF_CTRL_T_COMMAND='ag -g ""'
   export FZF_DEFAULT_COMMAND='rg --files'
-  export FZF_CTRL_T_COMMAND='rg --files'
+  export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+  export FZF_ALT_C_COMMAND="fd -t d . $HOME"
+  # export FZF_CTRL_T_COMMAND='rg --files'
 fi
 
 export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -200'"
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 
+_fzf_compgen_path() {
+  fd --hidden --follow --exclude ".git" --exclude "node_modules" --exclude ".cache" . "$1"
+}
+
+jump() {
+  pushd $(fd -t d . "$HOME" | fzf)
+}
+
 eval "`fnm env --multi`"
-# exec fish
