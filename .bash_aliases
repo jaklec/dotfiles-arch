@@ -1,3 +1,4 @@
+alias lsalias='grep "alias" ~/.bash_aliases'
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
 
 alias grep='grep --color=auto'
@@ -34,3 +35,5 @@ alias ls="exa"
 alias slack-fk='slack-term -config ~/.slack-term.fk'
 alias fkpg="psql -h localhost -p 5432 -U developer"
 alias fkenv="source ~/fkenv/bin/activate" 
+
+alias git-rm-untracked="git stash save --keep-index --include-untracked && git stash drop"
