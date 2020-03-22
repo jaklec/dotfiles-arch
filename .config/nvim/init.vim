@@ -97,6 +97,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
 " Plug 'neoclide/coc-yaml'
 " Plug 'neoclide/coc-vetur' "Vue
 " Plug 'neoclide/coc-rls' "Rust
+Plug 'evanleck/vim-svelte'
 
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
@@ -104,7 +105,10 @@ let g:coc_snippet_prev = '<S-TAB>'
 inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" IMPORTANTE: :help Ncm2PopupOpen for more information
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" IMPORTANTE: :help Nce2PopupOpen for more information
 set completeopt=noinsert,menuone,preview,noselect
 
 " Async code formatting
@@ -124,8 +128,8 @@ Plug 'rompetroll/vim-scalariform'
 
 " :: Rust ::
 Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
-Plug 'phildawes/racer'
+" Plug 'racer-rust/vim-racer'
+" Plug 'phildawes/racer'
 
 " :: Typescript ::
 " Highlighting and indent support
@@ -154,6 +158,21 @@ Plug 'posva/vim-vue'
 
 "" Terraform
 Plug 'hashivim/vim-terraform'
+
+"" Lens.vim
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'
+
+"" CSV files
+Plug 'mechatroner/rainbow_csv'
+
+"" Markdown Preview
+"   Commands
+"   :MarkdownPreview
+"   :MarkdownPreviewStop
+"
+"   https://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 " All of your Plugs must be added before the following line
 call plug#end()              " required
@@ -245,6 +264,8 @@ nmap <leader>ld <Plug>(coc-definition)
 nmap <leader>li <Plug>(coc-implementation)
 " <leader>lt to go to type definition
 nmap <leader>lt <Plug>(coc-type-definition)
+" <leader>lu to go show references
+nmap <leader>lu <Plug>(coc-references)
 " <leader>lr to rename variable under cursor
 nmap <leader>lr <Plug>(coc-rename)
 " <leader>lh for type info under cursor
@@ -369,7 +390,10 @@ nnoremap <leader>sh :below 10sp term://$SHELL<cr>
 
 nnoremap <leader>tt :TagbarToggle<cr>
 
-au BufRead,BufNewFile *.svelte set filetype=html
+" au BufRead,BufNewFile *.svelte set filetype=html
+
+"" Lens.vim
+let g:lens#height_resize_max = 50
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'scala',
