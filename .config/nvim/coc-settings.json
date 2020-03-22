@@ -2,12 +2,12 @@
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript","javascriptreact", "typescript", "vue"],
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust", "svelte"],
   "javascript.validate.enable": false,
+  "python.jediEnabled": false,
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips",
   ] ,
-  "rust.clippy_preference":"on",
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
@@ -34,6 +34,14 @@
           "directory": "/tmp/ccls"
         }
       }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
     }
-  }
+  },
+  "rust-analyzer.serverPath":"/usr/bin/rust-analyzer",
+  "java.home":"/usr/lib/jvm/java-8-openjdk"
 }
