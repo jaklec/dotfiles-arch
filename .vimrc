@@ -153,8 +153,11 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 " nnoremap <S-Tab> <C-W>W
 
 " Easily switch to next buffer
-nnoremap <C-b> :bn<CR>
-nnoremap <A-b> :bp<CR>
+" nnoremap <C-b> :bn<CR>
+" nnoremap <A-b> :bp<CR>
+nnoremap <A-b> :bn<CR>
+nnoremap <S-A-b> :bp<CR>
+nnoremap <leader>b :b#<CR>
 
 " Quick open a buffer for scribbling
 " nnoremap <leader>q :e ~/scribble <CR>
@@ -162,7 +165,7 @@ nnoremap <A-b> :bp<CR>
 " Close current buffer without closing the window
 noremap <leader>w :bp<bar>sp<bar>bn<bar>bd<CR>
 
-noremap <leader>wa :%bd<bar>e#<bar>bd#
+noremap <leader>a :%bd<bar>e#<bar>bd#<CR>
 
 " Toggle relative numbers
 noremap <leader>rn :set relativenumber!<CR>
