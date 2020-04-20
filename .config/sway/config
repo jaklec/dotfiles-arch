@@ -25,8 +25,8 @@ set $menu wofi --show drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg ~/.local/share/backgrounds/archlinux_wallpaper.jpg fill
+# output * bg ~/.local/share/backgrounds/archlinux_wallpaper.jpg fill
+output * bg ~/.local/share/backgrounds/XPS_F60A1037_CP_16x10.png fill
 output eDP-1 scale 2
 
 #Notifications
@@ -35,8 +35,7 @@ bindsym $mod+n mode notifications
 mode notifications {
 	bindsym Escape mode default
 	bindsym Return exec makoctl invoke; exec makoctl dismiss; mode default
-	bindsym d exec makoctl dismiss; mode default
-	bindsym 1 exec makoctl dismiss
+	bindsym d exec makoctl dismiss
 	bindsym Shift+d exec makoctl dismiss -a; mode default
 }
 
@@ -253,7 +252,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# Screen capture
+# Screen capture (print screen)
 #
 bindsym $mod+Print exec grim ~/Desktop/screenshot_$(date +%Y-%m-%dT%T).png
 bindsym $mod+Shift+Print exec grim -g "$(slurp)" ~/Desktop/screenshot_$(date +%Y-%m-%dT%T).png
@@ -274,7 +273,7 @@ bar {
     colors {
         statusline #ffffff
         background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        inactive_workspace #323232 #323232 #7c7c7c
     }
 }
 
