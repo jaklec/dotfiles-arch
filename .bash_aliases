@@ -32,8 +32,10 @@ alias diff="colordiff"
 alias ls="exa"
 
 # Flexibla Kontoret
-alias slack-fk='slack-term -config ~/.slack-term.fk'
+alias fkslack='slack-term -config ~/.slack-term.fk'
 alias fkpg="psql -h localhost -p 5432 -U developer"
 alias fkenv="source ~/fkenv/bin/activate" 
 
 alias git-rm-untracked="git stash save --keep-index --include-untracked && git stash drop"
+alias gitl="git log --oneline --decorate --all --color=always"
+alias gitls="git log --oneline --decorate --all --stat --color=always"
