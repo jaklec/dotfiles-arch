@@ -25,8 +25,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'cohama/lexima.vim'
 " Code snippets
 Plug 'SirVer/ultisnips'
+" Nerd Commenter
+" Plug 'scrooloose/nerdcommenter'
 " Vim commenter
-Plug 'scrooloose/nerdcommenter'
+" - Use gcc to comment out a line (takes a count)
+" - gc to comment out the target of a motion (for example, gcap to comment out a paragraph)
+" - gc in visual mode to comment out the selection
+" - gc in operator pending mode to target a comment
+" - You can also use it as a command, either with a range like :7,17Commentary, or as part of a :global invocation like with :g/TODO/Commentary. That's it.
+Plug 'tpope/vim-commentary'
 " Edit surrounding qoutes/parrents
 " - {Visual}S<arg> surrounds selection
 " - cs/ds<arg1><arg2> change/delete
@@ -98,6 +105,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
 " Plug 'neoclide/coc-vetur' "Vue
 " Plug 'neoclide/coc-rls' "Rust
 Plug 'evanleck/vim-svelte'
+Plug 'mattn/emmet-vim'
 
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
@@ -148,6 +156,9 @@ Plug 'mxw/vim-jsx'
 
 " Golang autocompletion daemon compatible with nvim-completion-manager.
 Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
+
+" Python
+Plug 'Yggdroot/indentLine', {'for': 'python'}
 
 "" Web
 " Mustache and Handlebars
