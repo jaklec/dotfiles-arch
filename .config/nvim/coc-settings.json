@@ -6,34 +6,13 @@
   "javascript.validate.enable": false,
   "python.jediEnabled": false,
   "snippets.ultisnips.directories": [
-    "~/.config/nvim/UltiSnips",
+    "~/.config/nvim/UltiSnips"
   ] ,
   "languageserver": {
     "terraform": {
       "command": "terraform-lsp",
       "filetypes": ["terraform"],
       "initializationOptions": {}
-    },
-    "ccls": {
-      "command": "ccls",
-      "filetypes": [
-        "c",
-        "cpp",
-        "objc",
-        "objcpp"
-      ],
-      "rootPatterns": [
-        ".ccls",
-        "compile_commands.json",
-        ".vim/",
-        ".git/",
-        ".hg/"
-      ],
-      "initializationOptions": {
-        "cache": {
-          "directory": "/tmp/ccls"
-        }
-      }
     },
     "bash": {
       "command": "bash-language-server",
