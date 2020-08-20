@@ -14,11 +14,13 @@ call plug#begin('~/.vim/plugged')
 " Classic gruvbox theme
 Plug 'morhetz/gruvbox'
 Plug 'rakr/vim-one'
-Plug 'sonph/onehalf'
-" Plug 'ayu-theme/ayu-vim'
-" Plug 'Erichain/vim-monokai-pro'
-" Lean and mean status/tabline
 Plug 'vim-airline/vim-airline'
+Plug 'nightsense/snow'
+Plug 'arzg/vim-colors-xcode'
+Plug 'sonph/onehalf', {'rtp': 'vim/'}
+Plug 'ayu-theme/ayu-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'lifepillar/vim-solarized8'
 
 " :: Editing :: 
 " Auto close parens/quotes
@@ -204,11 +206,29 @@ end
 "   set termguicolors
 " endif
 
-set t_Co=256
-colorscheme gruvbox
-set background=dark
+" set t_Co=256
+set termguicolors
+
 set signcolumn=yes
-let g:gruvbox_contrast_dark = 'hard'
+
+"" Gruvbox dark scheme
+" colorscheme gruvbox
+" set background=dark
+" let g:gruvbox_contrast_dark = 'hard'
+" let g:gruvbox_contrast_light = 'hard'
+
+colorscheme xcodelighthc 
+
+"" VimOne light scheme
+" colorscheme one
+" set background=light
+" let g:one_allow_italics = 1
+"
+"set termguicolors     " enable true colors support
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
 
 " close preview window after completion
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
