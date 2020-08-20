@@ -2,7 +2,8 @@
 	email = jakob.leczinsky@gmail.com
   name = Jakob Leczinsky
 [merge]
-  tool = vimdiff 
+  tool = smerge
+  #tool = vimdiff 
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
@@ -12,6 +13,9 @@
   # Choose one of these 2 lines (not both!) explained below.
   #cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
   cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
+[mergetool "smerge"]
+  cmd = smerge mergetool "$BASE" "$LOCAL" "$REMOTE" -o "$MERGED"
+  trustExitCode = true
 [difftool]
   prompt = false
 [diff]
@@ -25,3 +29,8 @@
   path = .gitconfig-cygni
 [includeIf "gitdir:~/Projects/salt/"]
   path = .gitconfig-cygni
+[pull]
+	rebase = false
+[alias]
+  fixup = commit --amend --no-edit
+  undo = rest --soft HEAD^
