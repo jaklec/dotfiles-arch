@@ -13,6 +13,7 @@ set $left h
 set $down j
 set $up k
 set $right l
+
 # Your preferred terminal emulator
 set $term env KITTY_ENABLE_WAYLAND=1 kitty
 # set $term gnome-terminal 
@@ -21,6 +22,8 @@ set $term env KITTY_ENABLE_WAYLAND=1 kitty
 # set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu wofi --show drun
 # bindsym $mod+d exec "rofi -combi-modi window,drun,ssh -theme gruvbox-dark -font \\"hack 18\\" -show combi"
+
+default_border pixel 2 
 
 ### Output configuration
 #
@@ -264,11 +267,15 @@ bindsym $mod+Shift+Print exec grim -g "$(slurp)" ~/Desktop/screenshot_$(date +%Y
 bar {
     position top
 
+    font PowerlineSymbols 9
+
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     # status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
     # status_command while ~/.config/sway/status.sh; do sleep 1; done
-    status_command i3status
+#status_command i3status
+    status_command i3status-rs
+#status_command waybar
 
     colors {
         statusline #ffffff
@@ -276,6 +283,10 @@ bar {
         inactive_workspace #323232 #323232 #7c7c7c
     }
 }
+
+set $bg #17D580
+
+client.focused $bg $bg $bg $bg $bg
 
 set $nag exec swaynagmode
 mode "nag" {
@@ -342,3 +353,8 @@ exec_always swayidle \
         before-sleep 'swaylock -f -e -c 000000'
 
 exec_always mako
+
+# Kill annoying Firefox popup window when running WebRTC
+for_window [app_id="firefox" title="Firefox - Sharing Indicator"] {
+  kill
+}
