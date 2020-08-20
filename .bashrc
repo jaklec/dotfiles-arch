@@ -17,15 +17,23 @@ export EDITOR=$VISUAL
 export MOZ_ENABLE_WAYLAND=1 
 export BROWSER=firefox
 
+# export QT_QPA_PLATFORM=wayland 
+
 # Git
 source /usr/share/git/git-prompt.sh
 source /usr/share/git/completion/git-completion.bash
 export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]\h \w\[\033[0;32m\]$(__git_ps1)\n\[\033[0;32m\]└─\[\033[0m\033[0;32m\] \$\[\033[0m\033[0;32m\] ▶\[\033[0m\] '
 
+# Bat
+export BAT_THEME="GitHub"
+
 
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
+
+## Manage AWS user profile automatically 
+PROMPT_COMMAND='[[ "${PWD##/home/jakob/Projects/jakob/}" != ${PWD} ]] && export AWS_PROFILE=jakob-cli || unset AWS_PROFILE' 
 
 ## FZF
 source /usr/share/fzf/key-bindings.bash
