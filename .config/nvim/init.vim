@@ -212,12 +212,12 @@ set termguicolors
 set signcolumn=yes
 
 "" Gruvbox dark scheme
-" colorscheme gruvbox
-" set background=dark
-" let g:gruvbox_contrast_dark = 'hard'
-" let g:gruvbox_contrast_light = 'hard'
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
 
-colorscheme xcodelighthc 
+" colorscheme xcodelighthc 
 
 "" VimOne light scheme
 " colorscheme one
