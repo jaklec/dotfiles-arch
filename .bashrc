@@ -27,7 +27,6 @@ export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]
 # Bat
 export BAT_THEME="GitHub"
 
-
 if [ -f ~/.bash_aliases ]; then
 	. ~/.bash_aliases
 fi
