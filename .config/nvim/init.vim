@@ -59,15 +59,6 @@ let g:rainbow_active = 1
 " Highlight words in buffer matching the one currently under the cursor
 "Plug 'RRethy/vim-illuminate' "<-- Using * instead!
 
-" :: Files/Buffers ::
-" TreeView/Explorer
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-" Fuzzy find file
-Plug 'ctrlpvim/ctrlp.vim'
-" Find in files
-" <leader>a <arg> (see config below)
-Plug 'mileszs/ack.vim'
 " :Tlist to open taglist window
 " :TlistClose to close taglist window
 " Plug 'vim-scripts/taglist.vim'
@@ -94,8 +85,8 @@ Plug 'KabbAmine/vCoolor.vim'
 Plug 'lilydjwg/colorizer'
 
 " Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
-" Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+" Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'neoclide/coc-tsserver' "js/ts
 " Plug 'neoclide/coc-snippets'
 " Plug 'neoclide/coc-prettier' "js/ts
@@ -106,6 +97,10 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
 " Plug 'neoclide/coc-yaml'
 " Plug 'neoclide/coc-vetur' "Vue
 " Plug 'neoclide/coc-rls' "Rust
+"
+Plug 'francoiscabrol/ranger.vim'
+Plug 'rbgrouleff/bclose.vim'
+
 Plug 'evanleck/vim-svelte'
 Plug 'mattn/emmet-vim'
 
@@ -116,7 +111,8 @@ inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
+" inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <c-.> coc#refresh()
 
 " IMPORTANTE: :help Nce2PopupOpen for more information
 set completeopt=noinsert,menuone,preview,noselect
@@ -211,6 +207,9 @@ set termguicolors
 
 set signcolumn=yes
 
+set cursorline
+set cursorcolumn
+
 "" Gruvbox dark scheme
 colorscheme gruvbox
 set background=dark
@@ -260,12 +259,6 @@ let g:NERDTreeMapPreview="<F4>"
 " --------------------
 let g:NERDSpaceDelims = 1 "jump in one step after delimiter
 
-" --------------------
-" CtrlP
-" --------------------
-if exists("g:ctrlp_user_command")
-  unlet g:ctrlp_user_command
-endif
 
 " --------------------
 " Multiple curstors - a little hack to make it work naturally with deoplete 
@@ -282,67 +275,79 @@ endfunction
 set hidden 
 
 " --------------------
-" coc 
+"  YCM
 " --------------------
-" better display for messages
-set cmdheight=2
-set shortmess=aFc
-set updatetime=300
-" set updatetime=300
-" <leader>ld to go to definition
-nmap <leader>ld <Plug>(coc-definition)
-" <leader>li to go to implementation
-nmap <leader>li <Plug>(coc-implementation)
-" <leader>lt to go to type definition
-nmap <leader>lt <Plug>(coc-type-definition)
-" <leader>lu to go show references
-nmap <leader>lu <Plug>(coc-references)
-" <leader>lr to rename variable under cursor
-nmap <leader>lr <Plug>(coc-rename)
-" <leader>lh for type info under cursor
-" nmap <leader>lh <Plug>(coc-doHover)
-" <leader>lc Find symbol of current document
-nmap <leader>lc :<C-u>CocList outline<cr>
-" <leader>ls search workspace symbols
-nmap <leader>ls :<C-u>CocList -I symbols<cr>
-" <leader>lf format selected region
-vmap <leader>lf <Plug>(coc-format-selected)
-nmap <leader>lf <Plug>(coc-format-selected)
+fun! GoYCM()
+  nnoremap <buffer> <silent> <leader>ld :YcmCompleter GoTo<CR>
+  nnoremap <buffer> <silent> <leader>lu :YcmCompleter GoToReferences<CR>
+  nnoremap <buffer> <silent> <leader>lr :YcmCompleter RefactorRename<CR>
+  nnoremap <buffer> <silent> <leader>lh :call <SID>Hover()<CR>
+endfun
 
-" <leader>or organize imports
-nmap <leader>or :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
+" fun! GoCOC()
 
-" Use `[c` and `]c` for navigate diagnostics
-nmap <silent> <leader>lE <Plug>(coc-diagnostic-prev)
-nmap <silent> <leader>le <Plug>(coc-diagnostic-next)
+  " --------------------
+  " coc 
+  " --------------------
+  " better display for messages
+  set cmdheight=2
+  set shortmess=aFc
+  set updatetime=300
+  " set updatetime=300
 
-" Use <leader>lh for show documentation in preview window 
-" (close window with :pc)
-nnoremap <leader>lh :call <SID>show_documentation()<CR>
+  " Show autocomplete when Tab is pressed
+  " inoremap <silent> <expr> <Tab> coc#refresh()
+  " <leader>ld to go to definition
+  nmap <leader>ld <Plug>(coc-definition)
+  " <leader>li to go to implementation
+  nmap <leader>li <Plug>(coc-implementation)
+  " <leader>lt to go to type definition
+  nmap <leader>lt <Plug>(coc-type-definition)
+  " <leader>lu to go show references
+  nmap <leader>lr <Plug>(coc-references)
+  " <leader>lr to rename variable under cursor
+  nmap <leader>rn <Plug>(coc-rename)
+  " <leader>lh for type info under cursor
+  " nmap <leader>lh <Plug>(coc-doHover)
+  " <leader>lc Find symbol of current document
+  nmap <leader>lo :<C-u>CocList outline<cr>
+  " <leader>ls search workspace symbols
+  nmap <leader>ls :<C-u>CocList -I symbols<cr>
+  " <leader>lf format selected region
+  vmap <leader>lf <Plug>(coc-format-selected)
+  nmap <leader>lf <Plug>(coc-format-selected)
 
-function! s:show_documentation()
+  " <leader>or organize imports
+  nmap <leader>or :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
+
+  " Use `[c` and `]c` for navigate diagnostics
+  nmap <silent> <leader>lE <Plug>(coc-diagnostic-prev)
+  nmap <silent> <leader>le <Plug>(coc-diagnostic-next)
+
+  " Use <leader>lh for show documentation in preview window 
+  " (close window with :pc)
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  nnoremap <silent> <leader>la :CocAction<CR>
+
+  function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
   else
     call CocAction('doHover')
   endif
-endfunction
+  endfunction
 
-" --------------------
-" Ale
-" --------------------
-" let g:ale_fixers = {
-" \   'typescript': ['prettier'],
-" \   'javascript': ['prettier', 'eslint'],
-" \   'vue': ['prettier']
-" \}
-" nmap <leader>af <Plug>(ale_fix)
-" let g:ale_fix_on_save = 0
-" let g:ale_linters = {
-"       \ 'javascript': ['eslint'],
-"       \ 'typescript': ['eslint'],
-"       \ 'vue': ['eslint']
-"       \}
+  " CoC-Explorer
+  nmap <space>e :CocCommand explorer<CR>
+
+  " Coc cSpell
+  vmap <leader>a <Plug>(coc-codeaction-selected)
+  nmap <leader>a <Plug>(coc-codeaction-selected)
+" endfun
+
+" autocmd FileType typescript :call GoYCM()
+" autocmd FileType * if index(['typescript'], &ft) < 0 | :call GoCOC()
 
 " --------------------
 " React 
@@ -359,7 +364,7 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " --------------------
 let g:UltiSnipsSnippetsDirectories=["~/.config/nvim/UltiSnips"]
 let g:UltiSnipsEditSplit="horizontal"
-let g:UltiSnipsListSnippets="<c-k>"
+" let g:UltiSnipsListSnippets="<c-k>"
 let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand_or_jump)"
 let g:UltiSnipsJumpForwardTrigger="<Plug>(ultisnips_expand_or_jump)"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
@@ -381,22 +386,12 @@ nmap <leader>hp <Plug>(GitGutterPrevHunk)
 nmap <leader>hu <Plug>(GitGutterUndoHunk)
 
 " --------------------
-" ag (the sliver searcher) 
+" Use FZF instead of CtrlP - but keep Ctrl-P keybinding
 " --------------------
-if executable('ag')
+nmap <C-p> :FZF -i<CR>
 
-  " Use Ag with Ack 
-  let g:ackprg = 'ag --nogroup --nocolor --column --path-to-ignore ~/.ignore'
-
-  " Use Ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g "" --ignore=*.class 
-        \ --ignore=node_modules --ignore=dist --ignore=out --ignore=*.log'
-endif
-
-" Search with Ack -> actually with AG (see above)
-nnoremap <leader>g :Ack<Space>
-" Search for word under cursor
-nnoremap <leader>G :Ack <cword><cr>
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " --------------------
 " Folds 

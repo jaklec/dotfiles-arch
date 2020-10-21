@@ -134,11 +134,38 @@ let mapleader=" "
 let maplocalleader=" "
 
 " Remap jj and jk to <ESC>
-inoremap jj <ESC>
-inoremap jk <ESC>
+" inoremap jj <ESC>
+" inoremap jk <ESC>
 
-" Jump to end of line
-inoremap jka <ESC>A
+" 
+inoremap <C-l> <ESC>A
+" Ctrl+j and Ctrl+k as Esc
+" Ctrl-j is a little awkward unfortunately:
+" https://github.com/neovim/neovim/issues/5916
+" So we also map Ctrl+k
+nnoremap <C-j> <Esc>
+inoremap <C-j> <Esc>
+vnoremap <C-j> <Esc>
+snoremap <C-j> <Esc>
+xnoremap <C-j> <Esc>
+cnoremap <C-j> <C-c>
+onoremap <C-j> <Esc>
+lnoremap <C-j> <Esc>
+tnoremap <C-j> <Esc>
+
+nnoremap <C-k> <Esc>
+inoremap <C-k> <Esc>
+vnoremap <C-k> <Esc>
+snoremap <C-k> <Esc>
+xnoremap <C-k> <Esc>
+cnoremap <C-k> <C-c>
+onoremap <C-k> <Esc>
+lnoremap <C-k> <Esc>
+tnoremap <C-k> <Esc>
+
+" Jump to start and end of line using the home row keys
+map H ^
+map L $ 
 
 " Move lines (or blocks) up or down
 nnoremap <A-j> :m .+1<CR>==

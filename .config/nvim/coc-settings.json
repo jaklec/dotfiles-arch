@@ -2,9 +2,11 @@
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript","javascriptreact", "typescript", "vue"],
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust", "svelte"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust", "svelte", "python"],
   "javascript.validate.enable": false,
   "python.jediEnabled": false,
+  "python.formatting.provider": "black",
+  "python.formatting.blackPath": "/usr/bin/black",
   "snippets.ultisnips.directories": [
     "~/.config/nvim/UltiSnips"
   ] ,
@@ -22,5 +24,15 @@
     }
   },
   "rust-analyzer.serverPath":"/usr/bin/rust-analyzer",
-  "java.home":"/usr/lib/jvm/java-8-openjdk"
+  "java.home":"/usr/lib/jvm/java-8-openjdk",
+  "cSpellExt.enableDictionaries": ["swedish"],
+  "cSpell.language": "en,sv",
+  "cSpell.userWords": [
+    "Leczinsky",
+    "Millis",
+    "etag",
+    "fastify",
+    "healthcheck",
+    "postgres"
+  ]
 }
