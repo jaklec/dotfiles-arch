@@ -16,7 +16,8 @@ export EDITOR=$VISUAL
 # Firefox on Wayland
 export MOZ_ENABLE_WAYLAND=1 
 export BROWSER=firefox
-
+export XDG_SESSION_TYPE=wayland
+export XDG_CURRENT_DESKTOP=sway
 # export QT_QPA_PLATFORM=wayland 
 
 # Git
@@ -59,4 +60,5 @@ jump() {
   pushd $(fd -t d . "$HOME" | fzf)
 }
 
-eval "`fnm env --multi`"
+#eval "`fnm env --multi`"
+eval "`fnm env`"
