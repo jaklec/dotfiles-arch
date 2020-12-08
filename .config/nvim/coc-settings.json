@@ -21,10 +21,14 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
+    },
+    "kotlin": {
+      "command": "/usr/bin/kotlin-language-server",
+      "filetypes": ["kotlin"]
     }
   },
   "rust-analyzer.serverPath":"/usr/bin/rust-analyzer",
-  "java.home":"/usr/lib/jvm/java-8-openjdk",
+  "java.home":"/usr/lib/jvm/default",
   "cSpellExt.enableDictionaries": ["swedish"],
   "cSpell.language": "en,sv",
   "cSpell.userWords": [
