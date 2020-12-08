@@ -9,6 +9,7 @@ alias prettierrc='printf "trailingComma: es5\ntabWidth: 2\nsemi: true\nsingleQuo
 alias wifi='sudo systemctl disable netctl-auto@wlp0s20f3.service && sudo wifi-menu && sudo systemctl enable netctl-auto@wlp0s20f3.service'
 alias rwifi='sudo systemctl restart netctl-auto@wlp0s20f3.service'
 
+alias ssh='TERM=vt100 ssh'
 alias myip='curl ident.me'
 
 alias firefox='env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox' 
@@ -23,6 +24,7 @@ alias cat='bat'
 
 alias fvim='nvim `fzf`'
 alias fcat='cat `fzf`'
+alias vimread='vim -M'
 
 alias fiyay="yay -Slq | fzf -m --preview 'yay -Si {1}' | xargs -ro yay -S"
 alias fsyay="yay -Slq | fzf -m --preview 'yay -Si {1}'"
@@ -39,6 +41,7 @@ alias serve="python -m http.server"
 alias fkslack='slack-term -config ~/.slack-term.fk'
 alias fkpg="psql -h localhost -p 5432 -U developer"
 alias fkenv="source ~/fkenv/bin/activate" 
+alias fkdocs="(pushd ~/Projects/bdsn/docs; yarn docs; popd)"
 
 alias git-rm-untracked="git stash save --keep-index --include-untracked && git stash drop"
 alias gitl="git log --oneline --decorate --all --color=always"
