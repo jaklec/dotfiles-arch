@@ -80,6 +80,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+autocmd Filetype kotlin setlocal shiftwidth=4 softtabstop=4 tabstop=4
+
 " Enable tab/enter if completion menu is open
 " inoremap <expr> <Tab> (pumvisible() ? "\<C-n>" : "\<Tab>")
 " inoremap <expr> <S-Tab> (pumvisible() ? "\<C-p>" : "\<S-Tab>")
@@ -248,6 +250,7 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_winsize=25
 
-command! BufOnly silent! execute "%bd|e#|bd#"
+command! Bonly silent! execute "%bd|e#|bd#"
+
 
 let @f="va{zf"
