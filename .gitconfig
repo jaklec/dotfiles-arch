@@ -2,7 +2,8 @@
 	email = jakob.leczinsky@gmail.com
   name = Jakob Leczinsky
 [merge]
-  tool = smerge
+  #tool = smerge
+  tool = meld 
   #tool = vimdiff 
 	conflictstyle = diff3
 [mergetool]
