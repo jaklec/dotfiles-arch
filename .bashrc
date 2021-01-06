@@ -60,5 +60,7 @@ jump() {
   pushd $(fd -t d . "$HOME" | fzf)
 }
 
+export _JAVA_AWT_WM_NONREPARENTING=1
+
 #eval "`fnm env --multi`"
 eval "`fnm env`"
