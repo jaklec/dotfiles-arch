@@ -212,6 +212,9 @@ Plug 'mechatroner/rainbow_csv'
 "   https://github.com/iamcco/markdown-preview.nvim
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
+" Dart
+Plug 'dart-lang/dart-vim-plugin'
+
 " All of your Plugs must be added before the following line
 call plug#end()              " required
 
@@ -520,6 +523,7 @@ set statusline+=%{gutentags#statusline()}
 
 """" Abbreviations
 iab servcie service
+iab serivce service
 iab improt import
 iab publci public 
 iab isntall install
