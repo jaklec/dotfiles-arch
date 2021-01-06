@@ -23,20 +23,32 @@
       "ignoredRootPaths": ["~"]
     },
     "kotlin": {
-      "command": "/usr/bin/kotlin-language-server",
-      "filetypes": ["kotlin"]
+      "command": "kotlin-language-server",
+      "filetypes": ["kotlin"],
+      "settings": {
+        "kotlin": {
+          "compiler": {
+            "jvm": {
+              "target": "1.8"
+            }
+          }
+        }
+      }
     }
   },
   "rust-analyzer.serverPath":"/usr/bin/rust-analyzer",
+  "rust-analyzer.checkOnSave.command": "clippy",
   "java.home":"/usr/lib/jvm/default",
   "cSpellExt.enableDictionaries": ["swedish"],
   "cSpell.language": "en,sv",
   "cSpell.userWords": [
+    "Fargate",
     "Leczinsky",
     "Millis",
     "etag",
     "fastify",
     "healthcheck",
-    "postgres"
+    "postgres",
+    "subprojects"
   ]
 }
