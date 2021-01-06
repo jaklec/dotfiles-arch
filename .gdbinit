@@ -110,6 +110,8 @@ set history save
 set output-radix 0x10
 set input-radix 0x10
 
+set auto-load safe-path /
+
 # These make gdb never pause in its output
 set height 0
 set width 0
