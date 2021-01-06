@@ -12,6 +12,13 @@ alias rwifi='sudo systemctl restart netctl-auto@wlp0s20f3.service'
 alias ssh='TERM=vt100 ssh'
 alias myip='curl ident.me'
 
+# `time` is not installed by default on Arch even though the POSIX time command works anyway.
+# Run `pacman -S time` to install `time` under `/usr/bin/time`.
+# - To get default POSIX behavior - run `time -p ./my_executable` 
+# - To format output - run `time -f "Memory used (kB): %M\nUser time (s): %U" ./my_executable`
+# - To get verbose output - run `time -v ./my_executable`
+alias time='/usr/bin/time'
+
 alias firefox='env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox' 
 
 alias slack-cy='slack-term -config ~/.slack-term.cy'
@@ -50,3 +57,6 @@ alias gitls="git log --oneline --decorate --all --stat --color=always"
 #svelte/sapper
 sapperinit='npx degit "sveltejs/sapper-template#rollup"'
 svelteinit='npx degit "sveltejs/template"'
+
+#Let cmake generate clangd config
+cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
