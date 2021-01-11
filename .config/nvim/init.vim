@@ -380,6 +380,30 @@ endfun
 " Coc Explorer
 :nmap <leader>F :CocCommand explorer<CR>
 
+let g:coc_global_extensions = ['coc-spell-checker', 
+  \'coc-snippets',
+  \'coc-prettier',
+  \'coc-pairs',
+  \'coc-jest',
+  \'coc-explorer',
+  \'coc-eslint',
+  \'coc-emmet',
+  \'coc-cspell-dicts',
+  \'coc-yaml',
+  \'coc-vetur',
+  \'coc-tsserver',
+  \'coc-svelte',
+  \'coc-rust-analyzer',
+  \'coc-python',
+  \'coc-lua',
+  \'coc-json',
+  \'coc-java',
+  \'coc-go',
+  \'coc-flutter-tools',
+  \'coc-css',
+  \'coc-cmake',
+  \'coc-clangd']
+
 """ Vim-Test
 nmap <silent> <leader>tn :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
