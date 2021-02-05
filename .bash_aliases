@@ -64,3 +64,5 @@ alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 #mkdocs
 alias mkdocs='~/.venvs/run-mkdocs.sh'
 alias wiki='pushd ${HOME}/Documents/notes && mkdocs serve & sleep 1.5 && python -mwebbrowser http://localhost:8000 && fg'
+
+alias icat='kitty +kitten icat'
