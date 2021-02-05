@@ -20,3 +20,4 @@ node_modules
 jsconfig.json
 
 .vim/
+.ccls-cache
