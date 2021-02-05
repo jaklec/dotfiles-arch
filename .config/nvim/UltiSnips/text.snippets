@@ -1,0 +1,10 @@
+snippet conanfile
+[requires]
+${1:libcurl/7.50.3@bincrafters/stable}
+
+[generators]
+cmake_paths
+
+[options]
+${2:libcurl:with_openssl=True}
+endsnippet

@@ -13,16 +13,17 @@ call plug#begin('~/.vim/plugged')
 " :: Appearance ::
 " Classic gruvbox theme
 Plug 'morhetz/gruvbox'
-Plug 'rakr/vim-one'
+Plug 'cormacrelf/vim-colors-github'
+" Plug 'rakr/vim-one'
 Plug 'vim-airline/vim-airline'
-Plug 'nightsense/snow'
-Plug 'arzg/vim-colors-xcode'
-Plug 'sonph/onehalf', {'rtp': 'vim/'}
-Plug 'ayu-theme/ayu-vim'
-Plug 'NLKNguyen/papercolor-theme'
-Plug 'lifepillar/vim-solarized8'
+" Plug 'nightsense/snow'
+" Plug 'arzg/vim-colors-xcode'
+" Plug 'sonph/onehalf', {'rtp': 'vim/'}
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'lifepillar/vim-solarized8'
 
-" :: Editing :: 
+" :: Editing ::
 " Auto close parens/quotes
 Plug 'cohama/lexima.vim'
 " Code snippets
@@ -92,7 +93,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 " Plug 'neoclide/coc-prettier' "js/ts
 " Plug 'neoclide/coc-pairs'
 " Plug 'neoclide/coc-jest' "js/ts
-" Plug 'neoclide/coc-eslint' "js/ts 
+" Plug 'neoclide/coc-eslint' "js/ts
 " Plug 'neoclide/coc-emmet' "html
 " Plug 'neoclide/coc-yaml'
 " Plug 'neoclide/coc-vetur' "Vue
@@ -153,7 +154,7 @@ Plug 'sbdchd/neoformat', { 'on': ['Neoformat'] }
 Plug 'Shougo/echodoc.vim'
 
 " Async lint engine
-" Plug 'w0rp/ale'
+Plug 'dense-analysis/ale'
 
 " :: Scala ::
 " Scala syntax highlighting and formatting
@@ -215,6 +216,9 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Dart
 Plug 'dart-lang/dart-vim-plugin'
 
+" Vimwiki
+Plug 'vimwiki/vimwiki'
+
 " All of your Plugs must be added before the following line
 call plug#end()              " required
 
@@ -251,7 +255,7 @@ set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_contrast_light = 'hard'
 
-" colorscheme xcodelighthc 
+" colorscheme xcodelighthc
 
 "" VimOne light scheme
 " colorscheme one
@@ -268,7 +272,7 @@ let g:gruvbox_contrast_light = 'hard'
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " --------------------
-" airline 
+" airline
 " --------------------
 let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
@@ -290,13 +294,13 @@ let g:NERDTreeMapActivateNode="<F3>"
 let g:NERDTreeMapPreview="<F4>"
 
 " --------------------
-" nerdcommenter 
+" nerdcommenter
 " --------------------
 let g:NERDSpaceDelims = 1 "jump in one step after delimiter
 
 
 " --------------------
-" Multiple curstors - a little hack to make it work naturally with deoplete 
+" Multiple curstors - a little hack to make it work naturally with deoplete
 " --------------------
 function Multiple_cursors_before()
   let g:deoplete#disable_auto_complete = 1
@@ -307,7 +311,7 @@ endfunction
 
 
 " Required for operations modifying multiple buffers like rename.
-set hidden 
+set hidden
 
 " --------------------
 "  YCM
@@ -322,7 +326,7 @@ endfun
 " fun! GoCOC()
 
   " --------------------
-  " coc 
+  " coc
   " --------------------
   " better display for messages
   set cmdheight=2
@@ -380,7 +384,7 @@ endfun
 " Coc Explorer
 :nmap <leader>F :CocCommand explorer<CR>
 
-let g:coc_global_extensions = ['coc-spell-checker', 
+let g:coc_global_extensions = ['coc-spell-checker',
   \'coc-snippets',
   \'coc-prettier',
   \'coc-pairs',
@@ -394,7 +398,7 @@ let g:coc_global_extensions = ['coc-spell-checker',
   \'coc-tsserver',
   \'coc-svelte',
   \'coc-rust-analyzer',
-  \'coc-python',
+  \'coc-pyright',
   \'coc-lua',
   \'coc-json',
   \'coc-java',
@@ -403,6 +407,7 @@ let g:coc_global_extensions = ['coc-spell-checker',
   \'coc-css',
   \'coc-cmake',
   \'coc-clangd']
+" Use coc-pyright instead of coc-python
 
 """ Vim-Test
 nmap <silent> <leader>tn :TestNearest<CR>
@@ -415,17 +420,29 @@ nmap <silent> <leader>tv :TestVisit<CR>
 " autocmd FileType * if index(['typescript'], &ft) < 0 | :call GoCOC()
 
 " --------------------
-" React 
+" React
 " --------------------
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " --------------------
-" HTML 
+" HTML
 " --------------------
 " let g:user_emmet_leader_key='<C-E>' " Default is <C-Y>
 
 " --------------------
-" ultisnips 
+" ALE
+" --------------------
+let g:ale_linters = {
+      \ 'kotlin': ['ktlint'],
+      \}
+let g:ale_fixers = {
+      \'kotlin': ['ktlint'],
+      \}
+" \'*': ['remove_trailing_lines', 'trim_whitespace'],
+let g:ale_fix_on_save = 1
+
+" --------------------
+" ultisnips
 " --------------------
 let g:UltiSnipsSnippetsDirectories=["~/.config/nvim/UltiSnips"]
 let g:UltiSnipsEditSplit="horizontal"
@@ -444,7 +461,7 @@ function! UltiSnipsExpandOrJumpOrTab()
 endfunction
 
 " --------------------
-" gitgutter 
+" gitgutter
 " --------------------
 nmap <leader>hn <Plug>(GitGutterNextHunk)
 nmap <leader>hp <Plug>(GitGutterPrevHunk)
@@ -463,7 +480,7 @@ let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comm
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " --------------------
-" Folds 
+" Folds
 "
 " zf: create new fold
 " zc: close fold
@@ -490,9 +507,14 @@ nnoremap <leader>tt :TagbarToggle<cr>
 " Gnuplot
 au BufRead,BufNewFile *.plt set filetype=gnuplot
 au BufRead,BufNewFile *.gp set filetype=gnuplot
+au BufRead,BufNewFile *.pt set filetype=gnuplot
 
 " Avro
 au BufRead,BufNewFile *.avsc set filetype=json
+
+" Vimwiki
+let g:vimwiki_list = [{ 'path': '~/Documents/notes/docs',
+      \ 'syntax': 'markdown', 'ext': '.md' }]
 
 "" Lens.vim
 let g:lens#height_resize_max = 50
@@ -549,7 +571,7 @@ set statusline+=%{gutentags#statusline()}
 iab servcie service
 iab serivce service
 iab improt import
-iab publci public 
+iab publci public
 iab isntall install
 
 cnoreabbrev buffers Buffers

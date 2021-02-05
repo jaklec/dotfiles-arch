@@ -27,7 +27,8 @@ alias imv='imv -b ffffff'
 
 alias fk3-node='docker run -it -v "$PWD:/code" -p 3000:3000 -p 9229:9229 fk3_node'
 
-alias cat='bat'
+alias cat='bat --theme="gruvbox"'
+alias highlight='highlight --style pablo'
 
 alias fvim='nvim `fzf`'
 alias fcat='cat `fzf`'
@@ -37,7 +38,6 @@ alias fiyay="yay -Slq | fzf -m --preview 'yay -Si {1}' | xargs -ro yay -S"
 alias fsyay="yay -Slq | fzf -m --preview 'yay -Si {1}'"
 alias fryay="yay -Qeq | fzf -m --preview 'yay -Qi {1}' | xargs -ro yay -Rs"
 
-# alias diff="diff-so-fancy"
 alias diff="colordiff"
 
 alias ls="exa"
@@ -55,8 +55,12 @@ alias gitl="git log --oneline --decorate --all --color=always"
 alias gitls="git log --oneline --decorate --all --stat --color=always"
 
 #svelte/sapper
-sapperinit='npx degit "sveltejs/sapper-template#rollup"'
-svelteinit='npx degit "sveltejs/template"'
+alias sapperinit='npx degit "sveltejs/sapper-template#rollup"'
+alias svelteinit='npx degit "sveltejs/template"'
 
 #Let cmake generate clangd config
-cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
+
+#mkdocs
+alias mkdocs='~/.venvs/run-mkdocs.sh'
+alias wiki='pushd ${HOME}/Documents/notes && mkdocs serve & sleep 1.5 && python -mwebbrowser http://localhost:8000 && fg'

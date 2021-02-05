@@ -48,6 +48,7 @@
     "etag",
     "fastify",
     "healthcheck",
+    "itertools",
     "postgres",
     "subprojects"
   ]
