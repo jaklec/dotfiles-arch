@@ -231,6 +231,11 @@ input * xkb_layout "se"
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
 #
+# Wiki
+#
+    bindsym $mod+i exec python -mwebbrowser http://localhost:80
+
+#
 # Resizing containers:
 #
 mode "resize" {
