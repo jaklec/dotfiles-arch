@@ -75,6 +75,9 @@ iplot() {
 EOF
 }
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 export _JAVA_AWT_WM_NONREPARENTING=1
 
 #eval "`fnm env --multi`"
