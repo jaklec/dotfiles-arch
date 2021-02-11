@@ -124,8 +124,15 @@ set smartcase
 " Ctags
 set tags=./tags,tags
 
-" Use ag instead of grep
-if executable('ag')
+" Keep undo history even if we close the window. (very convenient)
+set undodir=~/.vimdid
+set undofile
+
+" Use rg or ag instead of grep
+if executable('rg') 
+  set grepprg=rg\ --no-heading\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+elseif executable('ag')
   " Use smart case, match whole words, and output in vim-friendly format
   set grepprg=ag\ -S\ -Q\ --nogroup\ --nocolor\ --vimgrep
   set grepformat^=%f:%l:%c:%m
@@ -134,6 +141,9 @@ endif
 " Use space as leader
 let mapleader=" "
 let maplocalleader=" "
+
+" <leader><leader> toggles between buffers
+nnoremap <leader><leader> <c-^>
 
 " Remap jj and jk to <ESC>
 " inoremap jj <ESC>
@@ -250,6 +260,7 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_winsize=25
 
+nmap <leader>; :Buffers<CR>
 command! Bonly silent! execute "%bd|e#|bd#"
 
 

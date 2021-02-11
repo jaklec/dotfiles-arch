@@ -28,6 +28,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'cohama/lexima.vim'
 " Code snippets
 Plug 'SirVer/ultisnips'
+" Highlight while yanking
+" Example: Presssing `3Y` will highlight the next three lines (which are
+" also beeing yanked).
+Plug 'machakann/vim-highlightedyank'
 " Nerd Commenter
 " Plug 'scrooloose/nerdcommenter'
 " Vim commenter
@@ -65,6 +69,7 @@ let g:rainbow_active = 1
 " Plug 'vim-scripts/taglist.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'airblade/vim-rooter'
 Plug '/usr/bin/fzf'
 Plug 'junegunn/fzf.vim'
 
@@ -199,8 +204,8 @@ Plug 'posva/vim-vue'
 Plug 'hashivim/vim-terraform'
 
 "" Lens.vim
-Plug 'camspiers/animate.vim'
-Plug 'camspiers/lens.vim'
+" Plug 'camspiers/animate.vim'
+" Plug 'camspiers/lens.vim'
 
 "" CSV files
 Plug 'mechatroner/rainbow_csv'
@@ -434,12 +439,16 @@ let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 " --------------------
 let g:ale_linters = {
       \ 'kotlin': ['ktlint'],
+      \ 'go': ['bingo', 'gobuild', 'gofmt', 'golangci-lint', 'golint', 'gometalinter', 'gopls', 'gosimple', 'gotype', 'govet', 'golangserver', 'revive', 'staticcheck'],
       \}
 let g:ale_fixers = {
       \'kotlin': ['ktlint'],
+      \'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
       \}
 " \'*': ['remove_trailing_lines', 'trim_whitespace'],
 let g:ale_fix_on_save = 1
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
 
 " --------------------
 " ultisnips
@@ -475,6 +484,9 @@ nmap <C-p> :FZF -i<CR>
 " Make the FZF popup window easier to read
 " --------------------
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comment' } }
+
+" <leader>s for Rg search
+noremap <leader>s :Rg<CR>
 
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -517,7 +529,7 @@ let g:vimwiki_list = [{ 'path': '~/Documents/notes/docs',
       \ 'syntax': 'markdown', 'ext': '.md' }]
 
 "" Lens.vim
-let g:lens#height_resize_max = 50
+" let g:lens#height_resize_max = 50
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'scala',

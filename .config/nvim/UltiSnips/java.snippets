@@ -1,3 +1,26 @@
+# global !p
+# def java_package(path):
+# 	import os	
+# 	absolute_path = os.path.abspath(path).split("/src/")[1].split("/")
+# 	src_dir_index = 0
+
+# 	while absolute_path[src_dir_index] != "java":
+# 		src_dir_index += 1
+
+# 	if src_dir_index != 0:
+# 		src_dir_index += 1
+# 		package_string = ".".join(absolute_path[src_dir_index:-1])
+# 	else:
+# 		package_string = "my.package.name"
+
+# 	return package_string + ";"
+# endglobal
+
+
+# snippet package "package"
+# package ${1:`!p snip.rv = java_package(path)`}$0
+# endsnippet
+
 global !p
 def current_dir():
 	from glob import glob
@@ -89,3 +112,20 @@ public void ${1:testMe}() {
 }
 endsnippet
 
+snippet spring-rest-controller "Spring REST controller class"
+package ${1:`!p snip.rv = package_for(current_dir())`}
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/")
+public class ${2:`!p snip.rv = java_file_basename()`}{
+
+		@GetMapping("hello")
+    public String greeting() {
+        return "Greetings from Spring Boot!";
+    }
+}
+endsnippet

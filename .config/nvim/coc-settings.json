@@ -51,5 +51,8 @@
     "itertools",
     "postgres",
     "subprojects"
-  ]
+  ],
+  "go.goplsOptions": {
+    "gofumpt": true
+  }
 }
