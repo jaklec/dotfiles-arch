@@ -235,10 +235,10 @@ augroup filetype_tweaks
   " Markdown
   autocmd BufNewFile,BufRead *.md set filetype=markdown
 
-  if executable('shellcheck')
-    let s:automake_filetypes += ['*.sh']
-    autocmd Filetype sh setlocal makeprg=shellcheck\ -x\ -f\ gcc\ %
-  endif
+  " if executable('shellcheck')
+  "   let s:automake_filetypes += ['*.sh']
+  "   autocmd Filetype sh setlocal makeprg=shellcheck\ -x\ -f\ gcc\ %
+  " endif
 
   " Use 4 spaces
   autocmd FileType java setlocal shiftwidth=4

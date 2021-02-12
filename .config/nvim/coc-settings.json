@@ -2,7 +2,7 @@
   "eslint.enable": true,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript","javascriptreact", "typescript", "vue"],
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust", "svelte", "python"],
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "javascriptreact", "typescript", "vue", "rust", "svelte", "python", "go"],
   "javascript.validate.enable": false,
   "python.jediEnabled": false,
   "python.formatting.provider": "black",
@@ -54,5 +54,12 @@
   ],
   "go.goplsOptions": {
     "gofumpt": true
+  },
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "go": ["golangci-lint"]
+  },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
   }
 }

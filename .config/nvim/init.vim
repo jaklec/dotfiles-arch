@@ -411,7 +411,8 @@ let g:coc_global_extensions = ['coc-spell-checker',
   \'coc-flutter-tools',
   \'coc-css',
   \'coc-cmake',
-  \'coc-clangd']
+  \'coc-clangd',
+  \'coc-diagnostic']
 " Use coc-pyright instead of coc-python
 
 """ Vim-Test
@@ -441,14 +442,19 @@ let g:ale_linters = {
       \ 'kotlin': ['ktlint'],
       \ 'go': ['bingo', 'gobuild', 'gofmt', 'golangci-lint', 'golint', 'gometalinter', 'gopls', 'gosimple', 'gotype', 'govet', 'golangserver', 'revive', 'staticcheck'],
       \}
+" \ 'sh': ['shellcheck']
 let g:ale_fixers = {
       \'kotlin': ['ktlint'],
       \'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
+      \'sh': ['shfmt']
       \}
-" \'*': ['remove_trailing_lines', 'trim_whitespace'],
+" " \'*': ['remove_trailing_lines', 'trim_whitespace'],
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
+nmap <silent> <leader>an :ALENext<CR> 
+nmap <silent> <leader>af :ALEFix<CR> 
+command! Fix silent! execute "ALEFix"
 
 " --------------------
 " ultisnips
