@@ -2,7 +2,6 @@
 let g:python_host_prog="/usr/bin/python2"
 let g:python3_host_prog="/usr/bin/python"
 
-
 " Read ~/.vimrc
 if filereadable(expand($HOME.'/.vimrc'))
   source $HOME/.vimrc
@@ -14,26 +13,21 @@ call plug#begin('~/.vim/plugged')
 " Classic gruvbox theme
 Plug 'morhetz/gruvbox'
 Plug 'cormacrelf/vim-colors-github'
-" Plug 'rakr/vim-one'
-Plug 'vim-airline/vim-airline'
-" Plug 'nightsense/snow'
-" Plug 'arzg/vim-colors-xcode'
-" Plug 'sonph/onehalf', {'rtp': 'vim/'}
-" Plug 'ayu-theme/ayu-vim'
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'lifepillar/vim-solarized8'
+
+Plug 'ap/vim-buftabline'
 
 " :: Editing ::
 " Auto close parens/quotes
 Plug 'cohama/lexima.vim'
+
 " Code snippets
 Plug 'SirVer/ultisnips'
+
 " Highlight while yanking
 " Example: Presssing `3Y` will highlight the next three lines (which are
 " also beeing yanked).
 Plug 'machakann/vim-highlightedyank'
-" Nerd Commenter
-" Plug 'scrooloose/nerdcommenter'
+
 " Vim commenter
 " - Use gcc to comment out a line (takes a count)
 " - gc to comment out the target of a motion (for example, gcap to comment out a paragraph)
@@ -41,6 +35,7 @@ Plug 'machakann/vim-highlightedyank'
 " - gc in operator pending mode to target a comment
 " - You can also use it as a command, either with a range like :7,17Commentary, or as part of a :global invocation like with :g/TODO/Commentary. That's it.
 Plug 'tpope/vim-commentary'
+
 " Edit surrounding qoutes/parrents
 " - {Visual}S<arg> surrounds selection
 " - cs/ds<arg1><arg2> change/delete
@@ -48,11 +43,13 @@ Plug 'tpope/vim-commentary'
 " - ys<obj><arg> surrounds text object
 " - yss<arg> for entire line
 Plug 'tpope/vim-surround'
+
 " Edit with multiple cursors
 " - Ctrl-n next cursor
 " - Ctrl-p previous cursor
 " - Ctrl-x skip cursor and move to next
 Plug 'terryma/vim-multiple-cursors'
+
 " Align text
 " :Tab /=> aligns all '=>' in selection
 Plug 'godlygeek/tabular'
@@ -61,12 +58,6 @@ Plug 'godlygeek/tabular'
 Plug 'luochen1990/rainbow'
 let g:rainbow_active = 1
 
-" Highlight words in buffer matching the one currently under the cursor
-"Plug 'RRethy/vim-illuminate' "<-- Using * instead!
-
-" :Tlist to open taglist window
-" :TlistClose to close taglist window
-" Plug 'vim-scripts/taglist.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'airblade/vim-rooter'
@@ -76,6 +67,7 @@ Plug 'junegunn/fzf.vim'
 " :: Git ::
 " Gutter signs and higlights based on git diff
 Plug 'airblade/vim-gitgutter'
+
 " Run git commands within vim
 " - :Gstatus show `git status`
 " - <C-n>/<C-p> next/prev file
@@ -90,29 +82,121 @@ Plug 'tpope/vim-fugitive'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'lilydjwg/colorizer'
 
-" Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}}
-" Plug 'neoclide/coc.nvim', {'do': 'yarn install --forzen-lockfile'}
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-" Plug 'neoclide/coc-tsserver' "js/ts
-" Plug 'neoclide/coc-snippets'
-" Plug 'neoclide/coc-prettier' "js/ts
-" Plug 'neoclide/coc-pairs'
-" Plug 'neoclide/coc-jest' "js/ts
-" Plug 'neoclide/coc-eslint' "js/ts
-" Plug 'neoclide/coc-emmet' "html
-" Plug 'neoclide/coc-yaml'
-" Plug 'neoclide/coc-vetur' "Vue
-" Plug 'neoclide/coc-rls' "Rust
 
 Plug 'vim-test/vim-test'
 
-Plug 'francoiscabrol/ranger.vim'
-Plug 'rbgrouleff/bclose.vim'
+" Plug 'francoiscabrol/ranger.vim'
+Plug 'kevinhwang91/rnvimr'
 
 Plug 'evanleck/vim-svelte'
 Plug 'mattn/emmet-vim'
 
 Plug 'udalov/kotlin-vim'
+
+" :: Scala ::
+" Scala syntax highlighting and formatting
+Plug 'derekwyatt/vim-scala'
+" Auto format scala code on save
+Plug 'rompetroll/vim-scalariform'
+
+" :: Rust ::
+Plug 'rust-lang/rust.vim'
+
+" :: Typescript ::
+" Highlighting and indent support
+Plug 'HerringtonDarkholme/yats.vim'
+
+" JS highlighting and indent support. Sometimes buggy, but has support for
+" jsdocs and flow
+" Plug 'othree/yajs.vim', { 'for': 'javascript' }
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+
+" Golang autocompletion daemon compatible with nvim-completion-manager.
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
+
+" Python
+Plug 'Yggdroot/indentLine', {'for': 'python'}
+
+"" Web
+" Mustache and Handlebars
+Plug 'mustache/vim-mustache-handlebars'
+
+"" Vue
+Plug 'posva/vim-vue'
+
+"" Terraform
+Plug 'hashivim/vim-terraform'
+
+
+"" CSV files
+Plug 'mechatroner/rainbow_csv'
+
+"" Markdown Preview
+"   Commands
+"   :MarkdownPreview
+"   :MarkdownPreviewStop
+"
+"   https://github.com/iamcco/markdown-preview.nvim
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+
+" Dart
+Plug 'dart-lang/dart-vim-plugin'
+
+" All of your Plugs must be added before the following line
+call plug#end()              " required
+
+" Non-Plug stuff after this line
+" ================================
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
+end
+
+set termguicolors
+
+set signcolumn=yes
+
+set cursorline
+set cursorcolumn
+
+" Use neovim live substitution
+set inccommand=split
+
+"" Gruvbox dark scheme
+colorscheme gruvbox
+set background=dark
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_contrast_light = 'hard'
+
+" tabline
+let g:buftabline_show=1
+
+" ranger
+nnoremap <silent> <leader>f :RnvimrToggle<CR>
+let g:rnvimr_enable_picker = 1
+
+" close preview window after completion
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" --------------------
+" nerdcommenter
+" --------------------
+let g:NERDSpaceDelims = 1 "jump in one step after delimiter
+
+
+" --------------------
+" Multiple curstors - a little hack to make it work naturally with deoplete
+" --------------------
+function Multiple_cursors_before()
+  let g:deoplete#disable_auto_complete = 1
+endfunction
+function Multiple_cursors_after()
+  let g:deoplete#disable_auto_complete = 0
+endfunction
+
 
 inoremap <expr> <TAB> pumvisible() ? "\<C-y>" : "\<TAB>"
 let g:coc_snippet_next = '<TAB>'
@@ -121,7 +205,6 @@ inoremap <expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<TAB>"
 " autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " Use <c-space> to trigger completion.
-" inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <c-.> coc#refresh()
 
 
@@ -152,242 +235,64 @@ endif
 " IMPORTANTE: :help Nce2PopupOpen for more information
 set completeopt=noinsert,menuone,preview,noselect
 
-" Async code formatting
-" :Neoformat <opt_formatter> for entire file
-" :Neoformat! <filetype> for visual selection
-Plug 'sbdchd/neoformat', { 'on': ['Neoformat'] }
-Plug 'Shougo/echodoc.vim'
-
-" Async lint engine
-Plug 'dense-analysis/ale'
-
-" :: Scala ::
-" Scala syntax highlighting and formatting
-Plug 'derekwyatt/vim-scala'
-" Auto format scala code on save
-Plug 'rompetroll/vim-scalariform'
-
-" :: Rust ::
-Plug 'rust-lang/rust.vim'
-" Plug 'racer-rust/vim-racer'
-" Plug 'phildawes/racer'
-
-" :: Typescript ::
-" Highlighting and indent support
-" " Plug 'leafgarland/typescript-vim', { 'for': ['typescript']}
-Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
-
-" let g:typescript_indent_disable=1
-" Plug 'jason0x43/vim-js-indent'
-
-" JS highlighting and indent support. Sometimes buggy, but has support for
-" jsdocs and flow
-" Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-
-" Golang autocompletion daemon compatible with nvim-completion-manager.
-Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.vim/plugged/gocode/nvim/symlink.sh' }
-
-" Python
-Plug 'Yggdroot/indentLine', {'for': 'python'}
-
-"" Web
-" Mustache and Handlebars
-Plug 'mustache/vim-mustache-handlebars'
-
-"" Vue
-Plug 'posva/vim-vue'
-
-"" Terraform
-Plug 'hashivim/vim-terraform'
-
-"" Lens.vim
-" Plug 'camspiers/animate.vim'
-" Plug 'camspiers/lens.vim'
-
-"" CSV files
-Plug 'mechatroner/rainbow_csv'
-
-"" Markdown Preview
-"   Commands
-"   :MarkdownPreview
-"   :MarkdownPreviewStop
-"
-"   https://github.com/iamcco/markdown-preview.nvim
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-
-" Dart
-Plug 'dart-lang/dart-vim-plugin'
-
-" Vimwiki
-Plug 'vimwiki/vimwiki'
-
-" All of your Plugs must be added before the following line
-call plug#end()              " required
-
-" Non-Plug stuff after this line
-" ================================
-if has('nvim')
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-end
-
-"" Comment this out when running a terminal that doesn't support true colors
-"" such as urxvt
-" if exists('+termguicolors')
-"   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"   set termguicolors
-" endif
-
-" set t_Co=256
-set termguicolors
-
-set signcolumn=yes
-
-set cursorline
-set cursorcolumn
-
-" Use neovim live substitution
-set inccommand=split
-
-"" Gruvbox dark scheme
-colorscheme gruvbox
-set background=dark
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_contrast_light = 'hard'
-
-" colorscheme xcodelighthc
-
-"" VimOne light scheme
-" colorscheme one
-" set background=light
-" let g:one_allow_italics = 1
-"
-"set termguicolors     " enable true colors support
-"let ayucolor="light"  " for light version of theme
-"let ayucolor="mirage" " for mirage version of theme
-"let ayucolor="dark"   " for dark version of theme
-"colorscheme ayu
-
-" close preview window after completion
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" --------------------
-" airline
-" --------------------
-let g:airline_powerline_fonts = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_min_count = 2
-
-" --------------------
-" nerdtree
-" --------------------
-" map <C-n> :NERDTree<CR>
-nmap <silent> <A-Up> :wincmd k<CR>
-nmap <silent> <A-Down> :wincmd j<CR>
-nmap <silent> <A-Left> :wincmd h<CR>
-nmap <silent> <A-Right> :wincmd l<CR>
-silent! nmap <C-p> :NERDTreeToggle<CR>
-silent! map <F2> :NERDTreeToggle<CR>
-silent! map <F3> :NERDTreeFind<CR>
-let g:NERDTreeToggle="<F2>"
-let g:NERDTreeMapActivateNode="<F3>"
-let g:NERDTreeMapPreview="<F4>"
-
-" --------------------
-" nerdcommenter
-" --------------------
-let g:NERDSpaceDelims = 1 "jump in one step after delimiter
-
-
-" --------------------
-" Multiple curstors - a little hack to make it work naturally with deoplete
-" --------------------
-function Multiple_cursors_before()
-  let g:deoplete#disable_auto_complete = 1
-endfunction
-function Multiple_cursors_after()
-  let g:deoplete#disable_auto_complete = 0
-endfunction
-
-
 " Required for operations modifying multiple buffers like rename.
 set hidden
 
+
 " --------------------
-"  YCM
+" coc
 " --------------------
-fun! GoYCM()
-  nnoremap <buffer> <silent> <leader>ld :YcmCompleter GoTo<CR>
-  nnoremap <buffer> <silent> <leader>lu :YcmCompleter GoToReferences<CR>
-  nnoremap <buffer> <silent> <leader>lr :YcmCompleter RefactorRename<CR>
-  nnoremap <buffer> <silent> <leader>lh :call <SID>Hover()<CR>
-endfun
+" better display for messages
+set cmdheight=2
+set shortmess=aFc
+set updatetime=300
+" set updatetime=300
 
-" fun! GoCOC()
+" Show autocomplete when Tab is pressed
+" inoremap <silent> <expr> <Tab> coc#refresh()
+" <leader>ld to go to definition
+nmap <leader>ld <Plug>(coc-definition)
+" <leader>li to go to implementation
+nmap <leader>li <Plug>(coc-implementation)
+" <leader>lt to go to type definition
+nmap <leader>lt <Plug>(coc-type-definition)
+" <leader>lu to go show references
+nmap <leader>lr <Plug>(coc-references)
+" <leader>lr to rename variable under cursor
+nmap <leader>rn <Plug>(coc-rename)
+" <leader>lh for type info under cursor
+" nmap <leader>lh <Plug>(coc-doHover)
+" <leader>lc Find symbol of current document
+nmap <leader>lo :<C-u>CocList outline<cr>
+" <leader>ls search workspace symbols
+nmap <leader>ls :<C-u>CocList -I symbols<cr>
+" <leader>lf format selected region
+vmap <leader>lf <Plug>(coc-format-selected)
+nmap <leader>lf <Plug>(coc-format-selected)
 
-  " --------------------
-  " coc
-  " --------------------
-  " better display for messages
-  set cmdheight=2
-  set shortmess=aFc
-  set updatetime=300
-  " set updatetime=300
+" <leader>or organize imports
+nmap <leader>or :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
 
-  " Show autocomplete when Tab is pressed
-  " inoremap <silent> <expr> <Tab> coc#refresh()
-  " <leader>ld to go to definition
-  nmap <leader>ld <Plug>(coc-definition)
-  " <leader>li to go to implementation
-  nmap <leader>li <Plug>(coc-implementation)
-  " <leader>lt to go to type definition
-  nmap <leader>lt <Plug>(coc-type-definition)
-  " <leader>lu to go show references
-  nmap <leader>lr <Plug>(coc-references)
-  " <leader>lr to rename variable under cursor
-  nmap <leader>rn <Plug>(coc-rename)
-  " <leader>lh for type info under cursor
-  " nmap <leader>lh <Plug>(coc-doHover)
-  " <leader>lc Find symbol of current document
-  nmap <leader>lo :<C-u>CocList outline<cr>
-  " <leader>ls search workspace symbols
-  nmap <leader>ls :<C-u>CocList -I symbols<cr>
-  " <leader>lf format selected region
-  vmap <leader>lf <Plug>(coc-format-selected)
-  nmap <leader>lf <Plug>(coc-format-selected)
+" Use `[c` and `]c` for navigate diagnostics
+nmap <silent> <leader>lE <Plug>(coc-diagnostic-prev)
+nmap <silent> <leader>le <Plug>(coc-diagnostic-next)
 
-  " <leader>or organize imports
-  nmap <leader>or :call CocAction('runCommand', 'editor.action.organizeImport')<cr>
+" Show documentation
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
-  " Use `[c` and `]c` for navigate diagnostics
-  nmap <silent> <leader>lE <Plug>(coc-diagnostic-prev)
-  nmap <silent> <leader>le <Plug>(coc-diagnostic-next)
+nnoremap <silent> <leader>la :CocAction<CR>
 
-  " Show documentation
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+if &filetype == 'vim'
+  execute 'h '.expand('<cword>')
+else
+  call CocAction('doHover')
+endif
+endfunction
 
-  nnoremap <silent> <leader>la :CocAction<CR>
-
-  function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-  endfunction
-
-  " Coc cSpell
-  vmap <leader>a <Plug>(coc-codeaction-selected)
-  nmap <leader>a <Plug>(coc-codeaction-selected)
-" endfun
-
-" Coc Explorer
-:nmap <leader>F :CocCommand explorer<CR>
+" Coc cSpell
+vmap <leader>a <Plug>(coc-codeaction-selected)
+nmap <leader>a <Plug>(coc-codeaction-selected)
 
 let g:coc_global_extensions = ['coc-spell-checker',
   \'coc-snippets',
@@ -420,46 +325,16 @@ nmap <silent> <leader>ts :TestSuite<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
 
-" autocmd FileType typescript :call GoYCM()
-" autocmd FileType * if index(['typescript'], &ft) < 0 | :call GoCOC()
-
 " --------------------
 " React
 " --------------------
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 
 " --------------------
-" HTML
-" --------------------
-" let g:user_emmet_leader_key='<C-E>' " Default is <C-Y>
-
-" --------------------
-" ALE
-" --------------------
-let g:ale_linters = {
-      \ 'kotlin': ['ktlint'],
-      \ 'go': ['bingo', 'gobuild', 'gofmt', 'golangci-lint', 'golint', 'gometalinter', 'gopls', 'gosimple', 'gotype', 'govet', 'golangserver', 'revive', 'staticcheck'],
-      \}
-" \ 'sh': ['shellcheck']
-let g:ale_fixers = {
-      \'kotlin': ['ktlint'],
-      \'go': ['gofmt', 'goimports', 'remove_trailing_lines', 'trim_whitespace'],
-      \'sh': ['shfmt']
-      \}
-" " \'*': ['remove_trailing_lines', 'trim_whitespace'],
-let g:ale_fix_on_save = 1
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-nmap <silent> <leader>an :ALENext<CR> 
-nmap <silent> <leader>af :ALEFix<CR> 
-command! Fix silent! execute "ALEFix"
-
-" --------------------
 " ultisnips
 " --------------------
 let g:UltiSnipsSnippetsDirectories=["~/.config/nvim/UltiSnips"]
 let g:UltiSnipsEditSplit="horizontal"
-" let g:UltiSnipsListSnippets="<c-k>"
 let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand_or_jump)"
 let g:UltiSnipsJumpForwardTrigger="<Plug>(ultisnips_expand_or_jump)"
 let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
@@ -528,12 +403,8 @@ au BufRead,BufNewFile *.pt set filetype=gnuplot
 " Avro
 au BufRead,BufNewFile *.avsc set filetype=json
 
-" Vimwiki
-let g:vimwiki_list = [{ 'path': '~/Documents/notes/docs',
-      \ 'syntax': 'markdown', 'ext': '.md' }]
-
-"" Lens.vim
-" let g:lens#height_resize_max = 50
+" wiki
+nnoremap <leader>ww :edit ~/Documents/notes/docs/index.md<CR>
 
 let g:tagbar_type_scala = {
     \ 'ctagstype' : 'scala',
