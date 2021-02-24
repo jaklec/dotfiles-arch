@@ -145,11 +145,6 @@ let maplocalleader=" "
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
 
-" Remap jj and jk to <ESC>
-" inoremap jj <ESC>
-" inoremap jk <ESC>
-
-" 
 inoremap <C-l> <ESC>A
 " Ctrl+j and Ctrl+k as Esc
 " Ctrl-j is a little awkward unfortunately:
@@ -197,12 +192,6 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <A-b> :bn<CR>
 nnoremap <S-A-b> :bp<CR>
 nnoremap <leader>b :b#<CR>
-
-" Quick open a buffer for scribbling
-" nnoremap <leader>q :e ~/scribble <CR>
-
-" Close current buffer without closing the window
-noremap <leader>w :bp<bar>sp<bar>bn<bar>bd<CR>
 
 noremap <leader>a :%bd<bar>e#<bar>bd#<CR>
 
