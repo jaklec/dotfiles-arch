@@ -94,13 +94,13 @@ set formatoptions-=o
 " Recognize numbered lists
 set formatoptions+=n
 " Wrap at 80 characters
-" set textwidth=80
+set textwidth=80
+" Don't default to wrapping
+set nowrap
 " Side scroll when hitting end of line
 set sidescroll=1
 " Nice linebreak symbol
 set showbreak=↪>\
-" Don't default to wrapping
-set nowrap
 " Eliminate <Press Enter> message
 " set shortmess=aoOtI
 set shortmess=atI
@@ -212,9 +212,14 @@ function! ToggleFoldColumn()
   endif
 endfunction
 
+" Enable debugger
+packadd termdebug
+
 " Filetype configuration
 augroup filetype_tweaks
   autocmd!
+  " Rust
+  autocmd Filetype rust let termdebugger="rust-gdb"
   " Scala
   autocmd BufNewFile,BufRead *.sc set filetype=scala
 
@@ -232,6 +237,10 @@ augroup filetype_tweaks
   " Use 4 spaces
   autocmd FileType java setlocal shiftwidth=4
   autocmd FileType python setlocal shiftwidth=4
+
+  " Tab separated files (tsv)
+  autocmd FileType tsv setlocal noexpandtab list listchars=tab:>- 
+
 augroup END
 
 set cul
@@ -254,3 +263,5 @@ command! Bonly silent! execute "%bd|e#|bd#"
 
 
 let @f="va{zf"
+
+let $VIM='~/.vim'
