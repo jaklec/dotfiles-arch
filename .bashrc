@@ -27,7 +27,7 @@ export PS1='\[\033[0;32m\]\[\033[0m\033[0;32m\]\u\[\033[0;36m\] @ \[\033[0;36m\]
 
 # Bat
 # export BAT_THEME="GitHub"
-export BAT_THEME="gruvbox"
+export BAT_THEME="gruvbox-dark"
 export BAT_STYLE="full"
 
 if [ -f ~/.bash_aliases ]; then

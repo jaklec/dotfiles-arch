@@ -27,7 +27,7 @@ alias imv='imv -b ffffff'
 
 alias fk3-node='docker run -it -v "$PWD:/code" -p 3000:3000 -p 9229:9229 fk3_node'
 
-alias cat='bat --theme="gruvbox"'
+alias cat='bat --theme="gruvbox-dark"'
 alias highlight='highlight --style pablo'
 
 alias fvim='nvim `fzf`'
