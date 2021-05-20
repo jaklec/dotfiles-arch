@@ -134,3 +134,17 @@ endsnippet
 snippet dead_code "Allow dead code"
 #[allow(dead_code)]$0
 endsnippet
+
+snippet tokio_main "Hello world with Tokio"
+#[tokio::main]
+async fn main() {
+    println!("Hello, world!");
+}
+endsnippet
+
+snippet actix_test "actix test function"
+#[actix_rt::test]
+async fn ${1:test_foo}() {
+	$0
+}
+endsnippet

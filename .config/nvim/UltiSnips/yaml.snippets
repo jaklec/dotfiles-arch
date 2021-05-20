@@ -93,3 +93,25 @@ data:
   username: dXNlcg==
   password: bXlzZWNyZXRwYXNzd29yZA== # echo -n "mysecretpassword" | base64 -
 endsnippet
+
+snippet docker_compose "Example docker compose file"
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:10'
+    container_name: 'postgres-local'
+    ports:
+      - 5432:5432
+    networks:
+      - pg-network
+    environment:
+      - POSTGRES_USER=developer
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=dev
+    volumes:
+      - ../data/pgdata:/var/lib/postgresql/data
+networks:
+  pg-network:
+    driver: bridge
+endsnippet
