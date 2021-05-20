@@ -19,6 +19,7 @@ Plug 'ap/vim-buftabline'
 " :: Editing ::
 " Auto close parens/quotes
 Plug 'cohama/lexima.vim'
+"Plug 'mapkts/enwise'
 
 " Code snippets
 Plug 'SirVer/ultisnips'
@@ -289,6 +290,12 @@ else
   call CocAction('doHover')
 endif
 endfunction
+
+" Add (Neo)Vim's native statusline support.
+" NOTE: Please see `:h coc-status` for integrations with external plugins that
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+
 
 " Coc cSpell
 vmap <leader>a <Plug>(coc-codeaction-selected)
