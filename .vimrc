@@ -237,6 +237,7 @@ augroup filetype_tweaks
   " Use 4 spaces
   autocmd FileType java setlocal shiftwidth=4
   autocmd FileType python setlocal shiftwidth=4
+  autocmd FileType python nmap <leader>d :term pudb3 %<cr>
 
   " Tab separated files (tsv)
   autocmd FileType tsv setlocal noexpandtab list listchars=tab:>- 
