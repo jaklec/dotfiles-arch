@@ -18,6 +18,8 @@ alias myip='curl ident.me'
 # - To format output - run `time -f "Memory used (kB): %M\nUser time (s): %U" ./my_executable`
 # - To get verbose output - run `time -v ./my_executable`
 alias time='/usr/bin/time'
+alias timestamp='date +%s%N | cut -b1-13'
+alias isodate='date +"%Y-%m-%dT%H:%M:%S%z"'
 
 alias firefox='env MOZ_ENABLE_WAYLAND=1 /usr/lib/firefox/firefox' 
 
