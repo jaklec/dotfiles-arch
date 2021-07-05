@@ -50,7 +50,8 @@
     "healthcheck",
     "itertools",
     "postgres",
-    "subprojects"
+    "subprojects",
+    "toolchain"
   ],
   "go.goplsOptions": {
     "gofumpt": true
