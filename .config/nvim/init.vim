@@ -87,8 +87,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 
 Plug 'vim-test/vim-test'
 
-Plug 'francoiscabrol/ranger.vim'
-" Plug 'kevinhwang91/rnvimr'
+" Plug 'francoiscabrol/ranger.vim'
+Plug 'kevinhwang91/rnvimr'
 
 Plug 'evanleck/vim-svelte'
 Plug 'mattn/emmet-vim'
