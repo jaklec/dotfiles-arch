@@ -29,7 +29,7 @@ alias imv='imv -b ffffff'
 
 alias fk3-node='docker run -it -v "$PWD:/code" -p 3000:3000 -p 9229:9229 fk3_node'
 
-alias cat='bat --theme="gruvbox-dark"'
+alias cat='bat --theme="OneHalfDark"'
 alias highlight='highlight --style pablo'
 
 alias fvim='nvim `fzf`'
@@ -71,6 +71,12 @@ alias mkwiki='pushd ${HOME}/Documents/notes && mkdocs build && rsync -r ./site/ 
 
 alias icat='kitty +kitten icat'
 
+alias newdeck='git clone git@github.com:jaklec/slides-template.git'
+
 #colorize
 alias go='grc go'
 alias gow='grc gow'
+
+#Use local script to launch vscode
+alias code='~/.local/bin/code'
+alias vimspector="echo '{\"configurations\": {\"run\": {\"adapter\":\"debugpy|vscode-go|CodeLLDB|vscode-node\",\"breakpoints\":{\"exception\":{\"all\":\"N\",\"uncaught\":\"N\"}},\"configuration\":{\"request\":\"launch\",\"protocol\":\"auto\",\"stopOnEntry\":true,\"console\":\"integratedTerminal\",\"program\":\"\${workspaceFolder}/<<my-runnable-file>>\",\"cwd\":\"${workspaceFolder}\"}}}}' | jq"

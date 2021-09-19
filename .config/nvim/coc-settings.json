@@ -49,6 +49,7 @@
     "fastify",
     "healthcheck",
     "itertools",
+    "jaklec",
     "postgres",
     "subprojects",
     "toolchain"
