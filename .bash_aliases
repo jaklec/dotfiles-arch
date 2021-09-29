@@ -80,3 +80,4 @@ alias gow='grc gow'
 #Use local script to launch vscode
 alias code='~/.local/bin/code'
 alias vimspector="echo '{\"configurations\": {\"run\": {\"adapter\":\"debugpy|vscode-go|CodeLLDB|vscode-node\",\"breakpoints\":{\"exception\":{\"all\":\"N\",\"uncaught\":\"N\"}},\"configuration\":{\"request\":\"launch\",\"protocol\":\"auto\",\"stopOnEntry\":true,\"console\":\"integratedTerminal\",\"program\":\"\${workspaceFolder}/<<my-runnable-file>>\",\"cwd\":\"${workspaceFolder}\"}}}}' | jq"
+alias jsconfig="echo '{\"compilerOptions\":{\"module\":\"commonjs\",\"target\":\"esnext\"},\"exclude\":[\"node_modules\"]}'"
