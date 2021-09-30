@@ -233,7 +233,7 @@ input * xkb_layout "se"
 #
 # Wiki
 #
-    bindsym $mod+i exec python -mwebbrowser http://localhost:80
+    bindsym $mod+i exec firefox localhost 
 
 #
 # Resizing containers:
