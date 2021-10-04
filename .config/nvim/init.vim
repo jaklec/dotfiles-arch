@@ -51,6 +51,7 @@ set foldcolumn=1
   require('telescope-config')
   require('treesitter-config')
   require('lsp-config')
+  require('formatter-config')
   require('coq-config')
   require('nvim-autopairs').setup()
   require('rnvimr-config')

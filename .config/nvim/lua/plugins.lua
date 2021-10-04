@@ -68,6 +68,7 @@ return require('packer').startup(function()
   --   branch = 'release' 
   -- }
   use { 'neovim/nvim-lspconfig' }
+  use { 'mhartington/formatter.nvim'}
   use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
   use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
 
