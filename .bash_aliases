@@ -73,6 +73,9 @@ alias icat='kitty +kitten icat'
 
 alias newdeck='git clone git@github.com:jaklec/slides-template.git'
 
+# Rust Repl
+alias rusti='evcxr'
+
 #colorize
 alias go='grc go'
 alias gow='grc gow'
