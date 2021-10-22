@@ -1,19 +1,17 @@
-"if !has('nvim') 
-  " Basic aut indentation
-  set autoindent
-  " Atomatically reload mofied files
-  set autoread
-  " Don't scan included files for keyword completion (SLOW)
-  set complete-=i
-  " Always use UTF-8. Always!
-  set encoding=utf-8
-  " Highlight search
-  set hlsearch
-  " Enable mouse
-  set mouse=a
-  " Fast scrolling
-  set ttyfast
-"endif
+" Basic aut indentation
+set autoindent
+" Atomatically reload mofied files
+set autoread
+" Don't scan included files for keyword completion (SLOW)
+set complete-=i
+" Always use UTF-8. Always!
+set encoding=utf-8
+" Highlight search
+set hlsearch
+" Enable mouse
+set mouse=a
+" Fast scrolling
+set ttyfast
 
 " Read .vimrc from current dir if present
 set exrc
@@ -23,7 +21,7 @@ set secure
 filetype plugin indent on
 
 " Don't redraw while executing macros
-set lazyredraw
+"set lazyredraw
 
 " Timeouts
 set timeoutlen=1000
@@ -99,7 +97,20 @@ set shortmess=atI
 set showmatch
 set matchtime=5
 
+" Use space as leader
+let mapleader=" "
+let maplocalleader=" "
+
+" Default to normal numbering
 set number
+function! ToggleRelNum()
+  if &rnu == 1
+    set nornu
+  else
+    set rnu
+  endif
+endfunction
+nn <silent> <leader>n :call ToggleRelNum()<cr>
 
 " Enable syntax highlighting
 syntax enable
@@ -128,9 +139,6 @@ elseif executable('ag')
   set grepformat^=%f:%l:%c:%m
 endif
 
-" Use space as leader
-let mapleader=" "
-let maplocalleader=" "
 
 " <leader><leader> toggles between buffers
 nnoremap <leader><leader> <c-^>
@@ -179,7 +187,8 @@ noremap <leader>a :%bd<bar>e#<bar>bd#<CR>
 nnoremap <leader>z :call ToggleFoldColumn()<CR>
 
 " Execute current line in bash
-nnoremap <leader>r :.w !bash <CR>
+" nnoremap <leader>ex :.w !bash <CR>
+nnoremap <leader>ex :.w !
 
 function! ToggleFoldColumn()
   if &foldcolumn
@@ -242,7 +251,6 @@ let g:netrw_browse_split=4
 let g:netrw_altv=1
 let g:netrw_winsize=25
 
-nmap <leader>; :Buffers<CR>
 command! Bonly silent! execute "%bd|e#|bd#"
 
 
