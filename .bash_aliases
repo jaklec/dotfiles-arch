@@ -59,6 +59,7 @@ alias gitls="git log --oneline --decorate --all --stat --color=always"
 #svelte/sapper
 alias sapperinit='npx degit "sveltejs/sapper-template#rollup"'
 alias svelteinit='npx degit "sveltejs/template"'
+alias sveltekitinit='npm init svelte@next'
 
 #Let cmake generate clangd config
 alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
