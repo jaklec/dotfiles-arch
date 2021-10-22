@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
+export XDG_CONFIG_HOME=$HOME/.config
 PS1='[\u@\h \W]\$ '
 
 export PATH=$PATH:$HOME/.local/bin:$HOME/.cargo/bin
