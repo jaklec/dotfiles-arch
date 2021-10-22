@@ -6,6 +6,8 @@ vim.g.coq_settings = {auto_start = 'shut-up'}
 
 local coq = require("coq")
 
+_G.lsp_organize_imports = function() local params = {command = "_type"} end
+
 local on_attach = function(client, bufnr)
   local function buf_map(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local opts = {noremap = true, silent = true}
@@ -33,16 +35,16 @@ local on_attach = function(client, bufnr)
           opts)
   buf_map("n", "<leader>fs", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   buf_map("v", "<leader>fs", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  buf_map("n", "<leader>o", "<cmd>lua lsp_organize_imports()<CR>", opts)
+  -- buf_map("n", "<leader>o", "<cmd>lua lsp_organize_imports()<CR>", opts)
 
-  if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_exec([[
-         augroup LspAutocommands
-             autocmd! * <buffer>
-             autocmd BufWritePost <buffer> LspFormatting
-         augroup END
-         ]], true)
-  end
+  -- if client.resolved_capabilities.document_formatting then
+  --   vim.api.nvim_exec([[
+  --        augroup LspAutocommands
+  --            autocmd! * <buffer>
+  --            autocmd BufWritePost <buffer> LspFormatting
+  --        augroup END
+  --        ]], true)
+  -- end
 end
 
 local servers = {
@@ -60,8 +62,10 @@ local servers = {
   "graphql", -- yay -S graphql-lsp
   "sqls", -- yay -S sqls
   "bashls", -- yay -S bash-language-server
-  "jsonls" -- yay -S vscode-json-languageserver (create a sym link vscode-json-language-server)
+  "jsonls", -- yay -S vscode-json-languageserver (create a sym link vscode-json-language-server)
+  "emmet_ls" -- npm install -g emmet-ls
 }
+
 for _, lsp in ipairs(servers) do
   local lsp_config = {
     on_attach = on_attach,
@@ -69,6 +73,16 @@ for _, lsp in ipairs(servers) do
   }
 
   if lsp == 'jdtls' then lsp_config.cmd = {lsp} end
+
+  if lsp == 'emmet_ls' then
+    lsp_config.cmd = {'emmet-ls', '--stdio'};
+    lsp_config.filetypes = {'html', 'css'};
+    lsp_config.root_dir = function(fname) return vim.loop.cwd() end;
+    lsp_config.settings = {};
+    local capabilities = vim.lsp.protocol.make_client_capabilities();
+    capabilities.textDocument.completion.completionItem.snippetSupport = true;
+    lsp_config.capabilities = capabilities;
+  end
 
   nvim_lsp[lsp].setup(coq.lsp_ensure_capabilities(lsp_config))
 end
