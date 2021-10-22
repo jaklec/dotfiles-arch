@@ -75,16 +75,6 @@ set cindent
 " Use spaces for tabs!
 set expandtab
 
-" Tab/indentation spaces width
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-
-autocmd Filetype kotlin setlocal shiftwidth=4 softtabstop=4 tabstop=4
-
-" Enable tab/enter if completion menu is open
-" inoremap <expr> <Tab> (pumvisible() ? "\<C-n>" : "\<Tab>")
-" inoremap <expr> <S-Tab> (pumvisible() ? "\<C-p>" : "\<S-Tab>")
 
 " Only break line if it wasn't longer than 8 chars when editing began
 " and there is a blank somewhere in the line
@@ -146,7 +136,7 @@ let maplocalleader=" "
 nnoremap <leader><leader> <c-^>
 
 inoremap <C-l> <ESC>A
-" Ctrl+j and Ctrl+k as Esc
+" Ctrl+j as Esc
 " Ctrl-j is a little awkward unfortunately:
 " https://github.com/neovim/neovim/issues/5916
 " So we also map Ctrl+k
@@ -159,16 +149,6 @@ cnoremap <C-j> <C-c>
 onoremap <C-j> <Esc>
 lnoremap <C-j> <Esc>
 tnoremap <C-j> <Esc>
-
-nnoremap <C-k> <Esc>
-inoremap <C-k> <Esc>
-vnoremap <C-k> <Esc>
-snoremap <C-k> <Esc>
-xnoremap <C-k> <Esc>
-cnoremap <C-k> <C-c>
-onoremap <C-k> <Esc>
-lnoremap <C-k> <Esc>
-tnoremap <C-k> <Esc>
 
 " Jump to start and end of line using the home row keys
 map H ^
@@ -195,9 +175,6 @@ nnoremap <leader>b :b#<CR>
 
 noremap <leader>a :%bd<bar>e#<bar>bd#<CR>
 
-" Toggle relative numbers
-noremap <leader>rn :set relativenumber!<CR>
-
 " Toggle fold column
 nnoremap <leader>z :call ToggleFoldColumn()<CR>
 
@@ -214,6 +191,13 @@ endfunction
 
 " Enable debugger
 packadd termdebug
+
+" Tab/indentation spaces width
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" autocmd Filetype python,rust,kotlin,java setlocal shiftwidth=4 softtabstop=4 tabstop=4
 
 " Filetype configuration
 augroup filetype_tweaks
@@ -235,8 +219,7 @@ augroup filetype_tweaks
   " endif
 
   " Use 4 spaces
-  autocmd FileType java setlocal shiftwidth=4
-  autocmd FileType python setlocal shiftwidth=4
+  autocmd FileType rust, python, java, kotlin setlocal shiftwidth=4
   autocmd FileType python nmap <leader>d :term pudb3 %<cr>
 
   " Tab separated files (tsv)
@@ -262,7 +245,5 @@ let g:netrw_winsize=25
 nmap <leader>; :Buffers<CR>
 command! Bonly silent! execute "%bd|e#|bd#"
 
-
-let @f="va{zf"
 
 let $VIM='~/.vim'
