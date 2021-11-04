@@ -17,7 +17,7 @@ alias myip='curl ident.me'
 # - To get default POSIX behavior - run `time -p ./my_executable` 
 # - To format output - run `time -f "Memory used (kB): %M\nUser time (s): %U" ./my_executable`
 # - To get verbose output - run `time -v ./my_executable`
-alias time='/usr/bin/time'
+##nofish## alias time='/usr/bin/time'
 alias timestamp='date +%s%N | cut -b1-13'
 alias isodate='date +"%Y-%m-%dT%H:%M:%S%z"'
 
@@ -47,10 +47,8 @@ alias ls="exa"
 alias serve="python -m http.server"
 
 # Flexibla Kontoret
-alias fkslack='slack-term -config ~/.slack-term.fk'
 alias fkpg="psql -h localhost -p 5432 -U developer"
 alias fkenv="source ~/fkenv/bin/activate" 
-alias fkdocs="(pushd ~/Projects/bdsn/docs; yarn docs; popd)"
 
 alias git-rm-untracked="git stash save --keep-index --include-untracked && git stash drop"
 alias gitl="git log --oneline --decorate --all --color=always"
@@ -68,7 +66,8 @@ alias cmake='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON'
 alias mkdocs='~/.venvs/run-mkdocs.sh'
 # alias wiki='pushd ${HOME}/Documents/notes && mkdocs serve & sleep 1.5 && python -mwebbrowser http://localhost:8000 && fg'
 alias wiki='python -mwebbrowser http://localhost:80'
-alias mkwiki='pushd ${HOME}/Documents/notes && mkdocs build && rsync -r ./site/ /usr/share/nginx/html/ && popd'
+##nofish## alias mkwiki='pushd ${HOME}/Documents/notes && mkdocs build && rsync -r ./site/ /usr/share/nginx/html/ && popd'
+alias mkwiki='pushd $HOME/Documents/notes && mkdocs build && rsync -r ./site/ /usr/share/nginx/html/ && popd'
 
 alias icat='kitty +kitten icat'
 
@@ -83,5 +82,5 @@ alias gow='grc gow'
 
 #Use local script to launch vscode
 alias code='~/.local/bin/code'
-alias vimspector="echo '{\"configurations\": {\"run\": {\"adapter\":\"debugpy|vscode-go|CodeLLDB|vscode-node\",\"breakpoints\":{\"exception\":{\"all\":\"N\",\"uncaught\":\"N\"}},\"configuration\":{\"request\":\"launch\",\"protocol\":\"auto\",\"stopOnEntry\":true,\"console\":\"integratedTerminal\",\"program\":\"\${workspaceFolder}/<<my-runnable-file>>\",\"cwd\":\"${workspaceFolder}\"}}}}' | jq"
+alias vimspector="echo '{\"configurations\": {\"run\": {\"adapter\":\"debugpy|vscode-go|CodeLLDB|vscode-node\",\"breakpoints\":{\"exception\":{\"all\":\"N\",\"uncaught\":\"N\"}},\"configuration\":{\"request\":\"launch\",\"protocol\":\"auto\",\"stopOnEntry\":true,\"console\":\"integratedTerminal\",\"program\":\"\${workspaceFolder\}/<<my-runnable-file>>\",\"cwd\":\"\${workspaceFolder\}\"}}}}' | jq"
 alias jsconfig="echo '{\"compilerOptions\":{\"module\":\"commonjs\",\"target\":\"esnext\"},\"exclude\":[\"node_modules\"]}'"
