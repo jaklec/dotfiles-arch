@@ -31,7 +31,8 @@ default_border pixel 2
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # output * bg ~/.local/share/backgrounds/archlinux_wallpaper.jpg fill
 output * bg ~/.local/share/backgrounds/XPS_F60A1037_CP_16x10.png fill
-output eDP-1 scale 2
+output eDP-1 scale 2 position 0 2442
+output DP-1 scale 1.5 position 1920 1407 mode 3840x2160
 
 #Notifications
 #exec mako
@@ -361,6 +362,4 @@ exec_always swayidle \
 exec_always mako
 
 # Kill annoying Firefox popup window when running WebRTC
-for_window [app_id="firefox" title="Firefox - Sharing Indicator"] {
-  kill
-}
+for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
