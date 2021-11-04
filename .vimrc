@@ -126,8 +126,8 @@ set smartcase
 set tags=./tags,tags
 
 " Keep undo history even if we close the window. (very convenient)
-set undodir=~/.vimdid
-set undofile
+"set undodir=~/.vimdid
+"set undofile
 
 " Use rg or ag instead of grep
 if executable('rg') 
@@ -186,10 +186,6 @@ noremap <leader>a :%bd<bar>e#<bar>bd#<CR>
 " Toggle fold column
 nnoremap <leader>z :call ToggleFoldColumn()<CR>
 
-" Execute current line in bash
-" nnoremap <leader>ex :.w !bash <CR>
-nnoremap <leader>ex :.w !
-
 function! ToggleFoldColumn()
   if &foldcolumn
     setlocal foldcolumn=0
@@ -221,11 +217,6 @@ augroup filetype_tweaks
 
   " Markdown
   autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-  " if executable('shellcheck')
-  "   let s:automake_filetypes += ['*.sh']
-  "   autocmd Filetype sh setlocal makeprg=shellcheck\ -x\ -f\ gcc\ %
-  " endif
 
   " Use 4 spaces
   autocmd FileType rust, python, java, kotlin setlocal shiftwidth=4

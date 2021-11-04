@@ -25,3 +25,4 @@ jsconfig.json
 pkg
 bin
 *.class
+.nyc_output

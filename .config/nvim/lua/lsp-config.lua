@@ -1,9 +1,5 @@
 local nvim_lsp = require("lspconfig")
 
--- Autostart COQ on startup. This must happen before `require("coq")`.
--- The auto_start parameter can have values [false|true|'shut-up']
-vim.g.coq_settings = {auto_start = 'shut-up'}
-
 local coq = require("coq")
 
 _G.lsp_organize_imports = function() local params = {command = "_type"} end
