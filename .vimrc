@@ -219,7 +219,7 @@ augroup filetype_tweaks
   autocmd BufNewFile,BufRead *.md set filetype=markdown
 
   " Use 4 spaces
-  autocmd FileType rust, python, java, kotlin setlocal shiftwidth=4
+  autocmd FileType rust,python,java,kotlin setlocal shiftwidth=4
   autocmd FileType python nmap <leader>d :term pudb3 %<cr>
 
   " Tab separated files (tsv)
@@ -245,4 +245,4 @@ let g:netrw_winsize=25
 command! Bonly silent! execute "%bd|e#|bd#"
 
 
-let $VIM='~/.vim'
+"let $VIM='~/.vim'

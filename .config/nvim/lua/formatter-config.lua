@@ -35,6 +35,15 @@ require("formatter").setup({
           stdin = true
         }
       end
+    },
+    rust = {
+      function()
+        return {
+          exe = "rustfmt", -- yay -S lua-format
+          args = {'--emit=stdout'},
+          stdin = true
+        }
+      end
     }
   }
 })
@@ -43,6 +52,6 @@ require("formatter").setup({
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.ts,*.js,*.lua FormatWrite
+  autocmd BufWritePost *.ts,*.js,*.lua,*.rs FormatWrite
 augroup END
 ]], true)

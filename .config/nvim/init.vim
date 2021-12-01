@@ -60,8 +60,11 @@ set foldcolumn=1
   require('tagbar')
   require('vim-test-config')
   require('wiki')
+  require('spelunker')
 EOF
 
+"set spell spelllang=en_us
+set nospell
 
 """" Abbreviations
 iab servcie service

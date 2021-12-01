@@ -8,6 +8,8 @@ return require('packer').startup(function()
 
   use "Mofiqul/vscode.nvim"
 
+  use "kamykn/spelunker.vim"
+
   use "windwp/nvim-autopairs"
 
   use "SirVer/ultisnips"
@@ -58,23 +60,20 @@ return require('packer').startup(function()
     requires = {{'nvim-lua/popup.nvim'}, {'nvim-lua/plenary.nvim'}}
   }
 
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
+  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
 
   -- use {
   --   'neoclide/coc.nvim',  
   --   branch = 'release' 
   -- }
-  use { 'neovim/nvim-lspconfig' }
-  use { 'mhartington/formatter.nvim'}
-  use { 'ms-jpq/coq_nvim', branch = 'coq'} -- main one
-  use { 'ms-jpq/coq.artifacts', branch= 'artifacts'} -- 9000+ Snippets
+  use {'neovim/nvim-lspconfig'}
+  use {'mhartington/formatter.nvim'}
+  use {'ms-jpq/coq_nvim', branch = 'coq'} -- main one
+  use {'ms-jpq/coq.artifacts', branch = 'artifacts'} -- 9000+ Snippets
 
-  use { 'hoob3rt/lualine.nvim' }
+  use {'hoob3rt/lualine.nvim'}
 
-  use { 'puremourning/vimspector' }
-  use { 'vim-test/vim-test' }
+  use {'puremourning/vimspector'}
+  use {'vim-test/vim-test'}
 
 end)

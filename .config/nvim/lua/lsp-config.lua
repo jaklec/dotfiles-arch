@@ -1,5 +1,7 @@
 local nvim_lsp = require("lspconfig")
 
+vim.g.coq_settings = {auto_start = 'shut-up'}
+
 local coq = require("coq")
 
 _G.lsp_organize_imports = function() local params = {command = "_type"} end
@@ -78,6 +80,10 @@ for _, lsp in ipairs(servers) do
     local capabilities = vim.lsp.protocol.make_client_capabilities();
     capabilities.textDocument.completion.completionItem.snippetSupport = true;
     lsp_config.capabilities = capabilities;
+  end
+
+  if lsp == "jsonls" then
+    lsp_config.cmd = {'vscode-json-languageserver', '--stdio'};
   end
 
   nvim_lsp[lsp].setup(coq.lsp_ensure_capabilities(lsp_config))

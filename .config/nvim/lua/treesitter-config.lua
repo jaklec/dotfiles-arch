@@ -11,7 +11,7 @@ ts_config.setup {
   highlight = {
     enable = true,
     use_languagetree = true,
-    disable = {"typescript", "cpp"},
+    disable = {"typescript", "cpp", "python"},
     additional_vim_regex_highlighting = false
   },
   indent = {enable = false}

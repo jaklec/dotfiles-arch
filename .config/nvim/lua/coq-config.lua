@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 
-cmd(':command! Lsp COQnow --shut-up')
+-- cmd(':command! Lsp COQnow --shut-up')
 
 local map = vim.api.nvim_set_keymap
 local options = {noremap = true, silent = true}
